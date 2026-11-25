@@ -224,31 +224,24 @@ p{margin:0}
 .sellband .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;position:relative;z-index:2}
 .sellband{isolation:isolate}
 .sglow{position:absolute;right:-10%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(196,164,107,.18),transparent 62%);animation:breathe 9s ease-in-out infinite;pointer-events:none}
-.insp{position:relative;aspect-ratio:1/1.02;max-width:500px;width:100%;justify-self:center}
-.arch{position:absolute;left:24%;right:0;top:0;bottom:10%;border-radius:999px 999px 28px 28px;overflow:hidden;background:linear-gradient(180deg,#efe7d8,#d9ccb4);box-shadow:0 40px 80px -40px rgba(0,0,0,.8);isolation:isolate}
-.archin{position:absolute;inset:12px;border-radius:999px 999px 20px 20px;border:1px solid rgba(20,19,17,.12)}
-.archin::before{content:"";position:absolute;left:50%;top:42%;width:78%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle,#fbf8f2 0,rgba(251,248,242,0) 68%)}
-.aw{position:absolute;left:54%;top:45%;width:50%;aspect-ratio:.592;translate:-50% -50%;animation:fl 8s ease-in-out infinite}
-.aw img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 26px 22px rgba(20,19,17,.35))}
-.sheen{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.45) 48%,transparent 60%);background-size:300% 100%;background-position:100% 0;animation:sweep 7s var(--ease) infinite;mix-blend-mode:soft-light}
-.ocard{position:absolute;left:0;bottom:0;width:min(270px,58%);padding:22px;border-radius:22px;background:#1b1915;border:1px solid #2e2a23;box-shadow:0 40px 70px -30px rgba(0,0,0,.95);display:grid;gap:14px}
-.otop{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--vitmuted)}
-.otop small{font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid rgba(243,237,227,.18)}
-.owatch b{display:block;font:400 24px/1.1 "Instrument Serif",serif;color:var(--vitink)}
-.owatch span{font-size:13px;color:var(--vitmuted)}
-.osteps{list-style:none;margin:0;padding:0;display:grid;gap:10px;position:relative}
-.osteps::before{content:"";position:absolute;left:8.5px;top:8px;bottom:8px;width:1px;background:rgba(243,237,227,.15)}
-.osteps li{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--vitmuted);transition:color .5s}
-.osteps i{position:relative;z-index:1;width:18px;height:18px;border-radius:50%;border:1px solid rgba(243,237,227,.25);background:#1b1915;display:grid;place-items:center;transition:background .5s,border-color .5s}
-.osteps i svg{width:11px;height:11px;fill:none;stroke:#141311;stroke-width:2.6;stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .5s .15s var(--ease)}
-.osteps li.on i svg{stroke-dashoffset:0}
-.osteps li.on{color:var(--vitink)}
-.osteps li.on i{background:var(--gold);border-color:var(--gold)}
-.obid{display:flex;justify-content:space-between;align-items:baseline;padding-top:12px;border-top:1px solid rgba(243,237,227,.12)}
-.obid span{font-size:13px;color:var(--vitmuted)}
-.obid b{font:400 30px/1 "Instrument Serif",serif;color:var(--vitink)}
-.obid b{transition:color .6s}
-.insp:not(.done) .obid b{color:#4a443a}
+.insp{position:relative;aspect-ratio:1;max-width:500px;width:100%;justify-self:center}
+.bez{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.bez .tk{transform-origin:100px 100px;animation:spin 120s linear infinite}
+.bez .tk line{stroke:rgba(243,237,227,.22);stroke-width:.5}
+.bez .tk line.mj{stroke:rgba(243,237,227,.55);stroke-width:1}
+.bz-bg{fill:none;stroke:rgba(196,164,107,.16);stroke-width:1}
+.bz-arc{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:0 100;transition:stroke-dasharray 1.6s var(--ease);filter:drop-shadow(0 0 4px rgba(196,164,107,.6))}
+.mk{fill:#1b1915;stroke:rgba(196,164,107,.45);stroke-width:1;transition:fill .5s,stroke .5s}
+.mk.on{fill:var(--gold);stroke:var(--gold)}
+.disc{position:absolute;inset:15%;border-radius:50%;background:radial-gradient(circle at 50% 38%,#f4ede0 0,#e3d7c2 55%,#cbbb9f 100%);box-shadow:inset 0 -18px 40px rgba(120,95,55,.25),0 40px 80px -30px rgba(0,0,0,.9)}
+.disc::after{content:"";position:absolute;inset:6%;border-radius:50%;border:1px solid rgba(20,19,17,.08)}
+.insp .aw{position:absolute;left:50%;top:48%;width:40%;aspect-ratio:.592;translate:-50% -50%;animation:fl 8s ease-in-out infinite}
+.insp .aw img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 24px 22px rgba(60,45,20,.35))}
+.bidpill{position:absolute;left:50%;bottom:1%;translate:-50% 0;display:flex;align-items:baseline;gap:12px;padding:12px 20px;border-radius:999px;background:#1b1915;border:1px solid rgba(196,164,107,.5);box-shadow:0 20px 40px -20px rgba(0,0,0,.9);white-space:nowrap;opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .7s var(--ease)}
+.insp.done .bidpill{opacity:1;transform:none}
+.bidpill span{font-size:13px;color:var(--vitmuted)}
+.bidpill b{font:400 30px/1 "Instrument Serif",serif;color:var(--vitink)}
+.bidpill small{font-size:11px;color:var(--vitmuted);padding:2px 8px;border-radius:999px;border:1px solid rgba(243,237,227,.18)}
 .st{position:relative;overflow:hidden;transition:border-color .5s,background .5s,transform .6s var(--ease)}
 .st .bar{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
 .st.act{border-color:rgba(196,164,107,.55);background:#211e18;transform:translateY(-4px)}
@@ -549,7 +542,7 @@ main.pg > section:not(.hero):not(.phead) > .wrap{animation:pg .4s ease-out both}
 @media(max-width:1100px){.links{gap:22px}.nav{gap:18px}}
 @media(max-width:1000px){.hero .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.row4{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(6,auto)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prod,.wiz,.sellband .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}.gal,.side{position:static}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}.slots{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.filters input[type=search]{grid-column:1/-1}.links{display:none}.burger{display:block}.navr{margin-left:auto;border:0;padding-left:0}}
 @media(max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.vit{justify-self:center;max-width:520px}.vw{width:34%}.row3{grid-template-columns:minmax(0,1fr);grid-template-rows:none}.row3 .cell{grid-row:auto;grid-template-rows:auto}.verify,.notes,.plats{grid-template-columns:minmax(0,1fr)}.head,.revhead{grid-template-columns:minmax(0,1fr)}.insp{max-width:420px}}
-@media(max-width:560px){.ocard{padding:16px}.owatch b{font-size:20px}.thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}.grid,.row4{grid-template-columns:minmax(0,1fr);grid-template-rows:none}.row4 .cell{grid-row:auto;grid-template-rows:auto}.f2{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:minmax(0,1fr)}.rc{width:280px}.prog div{font-size:0}.filters{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:560px){.bidpill b{font-size:24px}.thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}.grid,.row4{grid-template-columns:minmax(0,1fr);grid-template-rows:none}.row4 .cell{grid-row:auto;grid-template-rows:auto}.f2{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:minmax(0,1fr)}.rc{width:280px}.prog div{font-size:0}.filters{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -831,13 +824,15 @@ function home(){
   <a class="btn light rv mag" href="#aanbieden" style="margin-top:32px">${t("sb_c")} ${AR}</a>
  </div>
  <div class="insp rv" id="insp">
-  <div class="arch"><div class="archin"></div><div class="aw"><img src="${IMG.gent}" alt="Tissot Gentleman"></div><div class="sheen"></div></div>
-  <div class="ocard">
-   <div class="otop"><span>${t("of_card")}</span><small>${t("of_ex")}</small></div>
-   <div class="owatch"><b>Tissot Gentleman</b><span>Powermatic 80 · 2023</span></div>
-   <ol class="osteps">${["os1","os2","os3"].map(k=>`<li><i>${CHECK}</i><span>${t(k)}</span></li>`).join("")}</ol>
-   <div class="obid"><span>${t("of_bid")}</span><b id="obv">${money(380)}</b></div>
-  </div>
+  <svg class="bez" viewBox="0 0 200 200" aria-hidden="true">
+   <g class="tk">${Array.from({length:60},(_,i)=>`<line x1="100" y1="${i%5?13:10}" x2="100" y2="17" transform="rotate(${i*6} 100 100)" class="${i%5?"":"mj"}"/>`).join("")}</g>
+   <circle class="bz-bg" cx="100" cy="100" r="94"/>
+   <circle class="bz-arc" id="barc" cx="100" cy="100" r="94" pathLength="100" transform="rotate(-90 100 100)"/>
+   ${[0,120,240].map((a,i)=>`<g transform="rotate(${a} 100 100)"><circle class="mk" data-m="${i}" cx="100" cy="6" r="3.2"/></g>`).join("")}
+  </svg>
+  <div class="disc"></div>
+  <div class="aw"><img src="${IMG.gent}" alt="Tissot Gentleman"></div>
+  <div class="bidpill" id="bidp"><span>${t("of_bid")}</span><b id="obv">${money(380)}</b><small>${t("of_ex")}</small></div>
  </div>
 </div></section>
 
@@ -879,11 +874,13 @@ function bindHero(){
 }
 function bindSell(){
  const box=document.getElementById("insp");if(!box)return;
- const lis=[...box.querySelectorAll(".osteps li")],steps=[...document.querySelectorAll(".sellband .st")];
+ const arc=document.getElementById("barc"),mks=[...box.querySelectorAll(".mk")],steps=[...document.querySelectorAll(".sellband .st")],ob=document.getElementById("obv");
  let k=0;
- const ob=document.getElementById("obv");
- const count=()=>{if(reduce){ob.textContent=money(380);return}const t0=performance.now();const f=tm=>{const p=Math.min(1,(tm-t0)/900),e=1-Math.pow(1-p,3);ob.textContent=money(Math.round(380*e/5)*5);if(p<1&&box.classList.contains("done"))requestAnimationFrame(f)};requestAnimationFrame(f)};
- const tick=()=>{k=(k+1)%5;const n=Math.min(k,3);lis.forEach((l,i)=>l.classList.toggle("on",i<n));steps.forEach((s2,i)=>s2.classList.toggle("act",i===k-1));const was=box.classList.contains("done");box.classList.toggle("done",k>=3);if(k===3&&!was)count();if(k<3)ob.textContent=money(0).replace(/0/,"—")};
+ const count=()=>{if(reduce){ob.textContent=money(380);return}const t0=performance.now();const f=tm=>{const p=Math.min(1,(tm-t0)/1000),e=1-Math.pow(1-p,3);ob.textContent=money(Math.round(380*e/5)*5);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)};
+ const tick=()=>{k=(k+1)%5;const n=Math.min(k,3);
+  arc.style.strokeDasharray=`${n/3*100} 100`;mks.forEach((m,i)=>m.classList.toggle("on",i<n));
+  steps.forEach((s2,i)=>s2.classList.toggle("act",i===k-1));
+  const was=box.classList.contains("done");box.classList.toggle("done",k>=3);if(k===3&&!was)count()};
  const io2=new IntersectionObserver(es=>{if(es[0].isIntersecting){io2.disconnect();tick();clearInterval(sTimer);sTimer=setInterval(tick,2300)}},{threshold:.3});
  io2.observe(box);
 }
