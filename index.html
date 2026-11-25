@@ -233,6 +233,8 @@ p{margin:0}
 .bz-arc{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:0 100;transition:stroke-dasharray 1.6s var(--ease);filter:drop-shadow(0 0 4px rgba(196,164,107,.6))}
 .mk{fill:#1b1915;stroke:rgba(196,164,107,.45);stroke-width:1;transition:fill .5s,stroke .5s}
 .mk.on{fill:var(--gold);stroke:var(--gold)}
+.clock{position:absolute;inset:14%;width:72%;height:72%;filter:drop-shadow(0 40px 50px rgba(0,0,0,.75))}
+.clock g{transform-origin:100px 100px}
 .disc{position:absolute;inset:15%;border-radius:50%;background:radial-gradient(circle at 50% 38%,#f4ede0 0,#e3d7c2 55%,#cbbb9f 100%);box-shadow:inset 0 -18px 40px rgba(120,95,55,.25),0 40px 80px -30px rgba(0,0,0,.9)}
 .disc::after{content:"";position:absolute;inset:6%;border-radius:50%;border:1px solid rgba(20,19,17,.08)}
 .insp .aw{position:absolute;left:50%;top:48%;width:40%;aspect-ratio:.592;translate:-50% -50%;animation:fl 8s ease-in-out infinite}
@@ -830,8 +832,23 @@ function home(){
    <circle class="bz-arc" id="barc" cx="100" cy="100" r="94" pathLength="100" transform="rotate(-90 100 100)"/>
    ${[0,120,240].map((a,i)=>`<g transform="rotate(${a} 100 100)"><circle class="mk" data-m="${i}" cx="100" cy="6" r="3.2"/></g>`).join("")}
   </svg>
-  <div class="disc"></div>
-  <div class="aw"><img src="${IMG.gent}" alt="Tissot Gentleman"></div>
+  <svg class="clock" viewBox="0 0 200 200" aria-hidden="true">
+   <defs><radialGradient id="cdial" cx=".5" cy=".38" r=".7"><stop offset="0" stop-color="#f6f0e4"/><stop offset=".6" stop-color="#e6dbc7"/><stop offset="1" stop-color="#cfc0a3"/></radialGradient>
+   <linearGradient id="ccase" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a352d"/><stop offset=".5" stop-color="#1a1814"/><stop offset="1" stop-color="#2c2822"/></linearGradient></defs>
+   <circle cx="100" cy="100" r="99" fill="url(#ccase)"/>
+   <circle cx="100" cy="100" r="92" fill="url(#cdial)"/>
+   <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(20,19,17,.12)" stroke-width=".6"/>
+   ${Array.from({length:60},(_,i)=>i%5?`<line x1="100" y1="11" x2="100" y2="15" stroke="#6f6656" stroke-width=".6" transform="rotate(${i*6} 100 100)"/>`:"").join("")}
+   ${Array.from({length:12},(_,i)=>`<rect x="${i%3?98.6:97.8}" y="12" width="${i%3?2.8:4.4}" height="${i%3?13:18}" rx="1" fill="#b08d4f" transform="rotate(${i*30} 100 100)"/>`).join("")}
+   <text x="100" y="62" text-anchor="middle" font-family="Instrument Serif,Georgia,serif" font-size="15" letter-spacing="2" fill="#1f1c17">LUMAR</text>
+   <text x="100" y="72" text-anchor="middle" font-family="Manrope,sans-serif" font-size="4.6" font-weight="700" letter-spacing="2.6" fill="#8a7550">WATCHES</text>
+   <text x="100" y="146" text-anchor="middle" font-family="Manrope,sans-serif" font-size="4" font-weight="600" letter-spacing="1.6" fill="#8a7a62">AUTOMATIC</text>
+   <g id="chh"><path d="M97.4 112 L97.9 56 L100 50 L102.1 56 L102.6 112 Z" fill="#1f1c17"/></g>
+   <g id="chm"><path d="M98.3 114 L98.7 26 L100 21 L101.3 26 L101.7 114 Z" fill="#1f1c17"/></g>
+   <g id="chs"><line x1="100" y1="124" x2="100" y2="18" stroke="#b08d4f" stroke-width="1"/><circle cx="100" cy="118" r="3" fill="#b08d4f"/></g>
+   <circle cx="100" cy="100" r="4.2" fill="#1f1c17"/><circle cx="100" cy="100" r="1.8" fill="#b08d4f"/>
+   <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-dasharray="120 460" transform="rotate(-140 100 100)"/>
+  </svg>
   <div class="bidpill" id="bidp"><span>${t("of_bid")}</span><b id="obv">${money(380)}</b><small>${t("of_ex")}</small></div>
  </div>
 </div></section>
@@ -883,6 +900,11 @@ function bindSell(){
   const was=box.classList.contains("done");box.classList.toggle("done",k>=3);if(k===3&&!was)count()};
  const io2=new IntersectionObserver(es=>{if(es[0].isIntersecting){io2.disconnect();tick();clearInterval(sTimer);sTimer=setInterval(tick,2300)}},{threshold:.3});
  io2.observe(box);
+ // klok met de echte tijd
+ const H=document.getElementById("chh"),M=document.getElementById("chm"),S=document.getElementById("chs");
+ const run=()=>{if(!document.getElementById("chh"))return;const d=new Date(),ms=d.getMilliseconds(),sec=d.getSeconds()+(reduce?0:ms/1000),min=d.getMinutes()+sec/60,hr=(d.getHours()%12)+min/60;
+  S.style.transform=`rotate(${sec*6}deg)`;M.style.transform=`rotate(${min*6}deg)`;H.style.transform=`rotate(${hr*30}deg)`;
+  if(reduce)setTimeout(run,1000);else requestAnimationFrame(run)};run();
 }
 
 /* ---------- collection ---------- */
