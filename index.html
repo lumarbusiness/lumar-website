@@ -225,27 +225,30 @@ p{margin:0}
 .sellband{isolation:isolate}
 .sglow{position:absolute;right:-10%;top:-30%;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(196,164,107,.18),transparent 62%);animation:breathe 9s ease-in-out infinite;pointer-events:none}
 .insp{position:relative;aspect-ratio:1/1.02;max-width:500px;width:100%;justify-self:center}
-.arch{position:absolute;left:14%;right:4%;top:0;bottom:8%;border-radius:999px 999px 28px 28px;overflow:hidden;background:linear-gradient(180deg,#efe7d8,#d9ccb4);box-shadow:0 40px 80px -40px rgba(0,0,0,.8);isolation:isolate}
+.arch{position:absolute;left:24%;right:0;top:0;bottom:10%;border-radius:999px 999px 28px 28px;overflow:hidden;background:linear-gradient(180deg,#efe7d8,#d9ccb4);box-shadow:0 40px 80px -40px rgba(0,0,0,.8);isolation:isolate}
 .archin{position:absolute;inset:12px;border-radius:999px 999px 20px 20px;border:1px solid rgba(20,19,17,.12)}
 .archin::before{content:"";position:absolute;left:50%;top:42%;width:78%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle,#fbf8f2 0,rgba(251,248,242,0) 68%)}
-.aw{position:absolute;left:50%;top:44%;width:52%;aspect-ratio:.592;translate:-50% -50%;animation:fl 8s ease-in-out infinite}
+.aw{position:absolute;left:54%;top:45%;width:50%;aspect-ratio:.592;translate:-50% -50%;animation:fl 8s ease-in-out infinite}
 .aw img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 26px 22px rgba(20,19,17,.35))}
 .sheen{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.45) 48%,transparent 60%);background-size:300% 100%;background-position:100% 0;animation:sweep 7s var(--ease) infinite;mix-blend-mode:soft-light}
-.ocard{position:absolute;left:0;bottom:0;width:min(300px,64%);padding:20px;border-radius:22px;background:rgba(24,22,18,.78);border:1px solid rgba(243,237,227,.14);backdrop-filter:blur(16px);box-shadow:0 30px 60px -24px rgba(0,0,0,.9);display:grid;gap:14px}
+.ocard{position:absolute;left:0;bottom:0;width:min(270px,58%);padding:22px;border-radius:22px;background:#1b1915;border:1px solid #2e2a23;box-shadow:0 40px 70px -30px rgba(0,0,0,.95);display:grid;gap:14px}
 .otop{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--vitmuted)}
 .otop small{font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid rgba(243,237,227,.18)}
 .owatch b{display:block;font:400 24px/1.1 "Instrument Serif",serif;color:var(--vitink)}
 .owatch span{font-size:13px;color:var(--vitmuted)}
 .osteps{list-style:none;margin:0;padding:0;display:grid;gap:10px;position:relative}
-.osteps::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:rgba(243,237,227,.15)}
+.osteps::before{content:"";position:absolute;left:8.5px;top:8px;bottom:8px;width:1px;background:rgba(243,237,227,.15)}
 .osteps li{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--vitmuted);transition:color .5s}
-.osteps i{position:relative;z-index:1;width:15px;height:15px;border-radius:50%;border:1px solid rgba(243,237,227,.3);background:#1a1814;transition:background .5s,border-color .5s,box-shadow .5s}
+.osteps i{position:relative;z-index:1;width:18px;height:18px;border-radius:50%;border:1px solid rgba(243,237,227,.25);background:#1b1915;display:grid;place-items:center;transition:background .5s,border-color .5s}
+.osteps i svg{width:11px;height:11px;fill:none;stroke:#141311;stroke-width:2.6;stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .5s .15s var(--ease)}
+.osteps li.on i svg{stroke-dashoffset:0}
 .osteps li.on{color:var(--vitink)}
-.osteps li.on i{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px rgba(196,164,107,.18)}
-.obid{display:flex;justify-content:space-between;align-items:baseline;padding-top:12px;border-top:1px solid rgba(243,237,227,.12);opacity:.25;transition:opacity .7s var(--ease)}
+.osteps li.on i{background:var(--gold);border-color:var(--gold)}
+.obid{display:flex;justify-content:space-between;align-items:baseline;padding-top:12px;border-top:1px solid rgba(243,237,227,.12)}
 .obid span{font-size:13px;color:var(--vitmuted)}
 .obid b{font:400 30px/1 "Instrument Serif",serif;color:var(--vitink)}
-.insp.done .obid{opacity:1}
+.obid b{transition:color .6s}
+.insp:not(.done) .obid b{color:#4a443a}
 .st{position:relative;overflow:hidden;transition:border-color .5s,background .5s,transform .6s var(--ease)}
 .st .bar{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
 .st.act{border-color:rgba(196,164,107,.55);background:#211e18;transform:translateY(-4px)}
@@ -443,6 +446,17 @@ footer p{font-size:15px;margin-bottom:8px}
 .done .tick svg{width:34px;height:34px;stroke:#fff;fill:none;stroke-width:2.5;stroke-dasharray:40;stroke-dashoffset:40;animation:draw .8s .2s var(--ease) forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 .refno{font:400 40px/1 "Instrument Serif",serif}
+
+/* real photos: fill the whole square */
+.tray img.cover,.trp img.cover{inset:0;width:100%;height:100%;object-fit:cover;filter:none}
+.card:hover .tray img.cover{transform:scale(1.06)}
+.vwrap.cover{inset:0;transform:none!important}
+.vwrap.cover img{object-fit:cover}
+.gal .main .vwrap.cover img{filter:none}
+.thumbs .vwrap.cover{inset:0}
+.thumbs button:has(.cover){padding:0}
+.vw.ph img{object-fit:cover;border-radius:18px;box-shadow:0 30px 40px -20px rgba(0,0,0,.7)}
+.vw.ph .shine{display:none}
 
 /* magnifier */
 .lens{position:absolute;left:0;top:0;z-index:3;width:200px;height:200px;border-radius:50%;overflow:hidden;pointer-events:none;background:radial-gradient(circle at 50% 42%,#faf6ef 0,var(--beige) 72%);box-shadow:0 0 0 3px #fff,0 24px 50px -10px rgba(20,19,17,.45);opacity:0;scale:.6;transition:opacity .25s,scale .35s var(--ease)}
@@ -744,8 +758,8 @@ const VIEWS={front:"none",dial:"scale(1.9)",crown:"scale(2.2) translate(-28%,0)"
 const VL={nl:{front:"Voorkant",dial:"Wijzerplaat",crown:"Kroon",left:"Linkerzijde",back:"Achterkant",lugs:"Kast en lugs",btop:"Armband",bbot:"Sluiting",angle:"Schuin"},en:{front:"Front",dial:"Dial",crown:"Crown",left:"Left side",back:"Caseback",lugs:"Case and lugs",btop:"Bracelet",bbot:"Clasp",angle:"Angled"}};
 const VORDER=w=>w.photos&&w.photos.length?w.photos.map((_,i)=>"p"+i):w.img?["front","dial","crown","left","lugs","btop","bbot","angle"]:["front","dial","crown","back","lugs","btop","bbot","angle"];
 const vlab=v=>VL[lang][v]||(t("photo")+" "+(+String(v).slice(1)+1));
-const shot=(w,v)=>w.photos&&w.photos.length?`<div class="vwrap"><img src="${w.photos[+String(v).slice(1)]||w.photos[0]}" alt="${esc(w.brand+" "+w.model)} – ${esc(vlab(v))}"></div>`:`<div class="vwrap" style="transform:${VIEWS[v]}">${v==="back"?watchSVG(w.look,"back"):w.img?`<img src="${IMG[w.img]}" alt="${esc(w.brand+" "+w.model)} – ${esc(VL[lang][v])}">`:watchSVG(w.look)}</div>`;
-const pic=(w,view)=>w.photos&&w.photos.length?`<img src="${w.photos[0]}" alt="${esc(w.brand+" "+w.model)}">`:w.img?`<img src="${IMG[w.img]}" alt="${esc(w.brand+" "+w.model)}"${view==="detail"?' class="zoom"':""}>`:watchSVG(w.look,view);
+const shot=(w,v)=>w.photos&&w.photos.length?`<div class="vwrap cover"><img src="${w.photos[+String(v).slice(1)]||w.photos[0]}" alt="${esc(w.brand+" "+w.model)} – ${esc(vlab(v))}"></div>`:`<div class="vwrap" style="transform:${VIEWS[v]}">${v==="back"?watchSVG(w.look,"back"):w.img?`<img src="${IMG[w.img]}" alt="${esc(w.brand+" "+w.model)} – ${esc(VL[lang][v])}">`:watchSVG(w.look)}</div>`;
+const pic=(w,view)=>w.photos&&w.photos.length?`<img class="cover" src="${w.photos[0]}" alt="${esc(w.brand+" "+w.model)}">`:w.img?`<img src="${IMG[w.img]}" alt="${esc(w.brand+" "+w.model)}"${view==="detail"?' class="zoom"':""}>`:watchSVG(w.look,view);
 function clockSVG(hh,mm){
  const hd=(hh%12)*30+mm/2,md=mm*6;
  let s=`<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#1a1814" stroke="#c4a46b" stroke-width="1.5"/>`;
@@ -793,7 +807,7 @@ function home(){
   <div class="vit" id="vit">
    <svg class="rings" viewBox="0 0 100 77" aria-hidden="true"><circle class="r1" cx="50" cy="36" r="33"/><circle class="r2" cx="50" cy="36" r="27"/><ellipse class="trk" cx="50" cy="60" rx="40" ry="7"/><ellipse class="trk2" cx="50" cy="60" rx="40" ry="7"/></svg>
    <div class="glow"></div><div class="floor"></div><div class="dust" id="dust"></div>
-   ${HERO.map((w,i)=>`<div class="vw" role="link" tabindex="0" aria-label="${esc(w.brand+" "+w.model)}" style="--ar:${RATIO[w.img]||.62};transition-delay:${.3+i*.12}s"><div class="fl" style="animation-delay:${-i*1.3}s"><img src="${heroSrc(w)}" alt="${esc(w.brand+" "+w.model)}"><div class="shine" style="animation-delay:${i*1}s"></div></div></div>`).join("")}
+   ${HERO.map((w,i)=>`<div class="vw${w.photos&&w.photos.length?" ph":""}" role="link" tabindex="0" aria-label="${esc(w.brand+" "+w.model)}" style="--ar:${w.photos&&w.photos.length?.8:RATIO[w.img]||.62};transition-delay:${.3+i*.12}s"><div class="fl" style="animation-delay:${-i*1.3}s"><img src="${heroSrc(w)}" alt="${esc(w.brand+" "+w.model)}"><div class="shine" style="animation-delay:${i*1}s"></div></div></div>`).join("")}
   </div>
  </div>
 </section>
@@ -821,8 +835,8 @@ function home(){
   <div class="ocard">
    <div class="otop"><span>${t("of_card")}</span><small>${t("of_ex")}</small></div>
    <div class="owatch"><b>Tissot Gentleman</b><span>Powermatic 80 · 2023</span></div>
-   <ol class="osteps">${["os1","os2","os3"].map(k=>`<li><i></i><span>${t(k)}</span></li>`).join("")}</ol>
-   <div class="obid"><span>${t("of_bid")}</span><b>${money(380)}</b></div>
+   <ol class="osteps">${["os1","os2","os3"].map(k=>`<li><i>${CHECK}</i><span>${t(k)}</span></li>`).join("")}</ol>
+   <div class="obid"><span>${t("of_bid")}</span><b id="obv">${money(380)}</b></div>
   </div>
  </div>
 </div></section>
@@ -867,7 +881,9 @@ function bindSell(){
  const box=document.getElementById("insp");if(!box)return;
  const lis=[...box.querySelectorAll(".osteps li")],steps=[...document.querySelectorAll(".sellband .st")];
  let k=0;
- const tick=()=>{k=(k+1)%5;const n=Math.min(k,3);lis.forEach((l,i)=>l.classList.toggle("on",i<n));steps.forEach((s2,i)=>s2.classList.toggle("act",i===k-1));box.classList.toggle("done",k>=3)};
+ const ob=document.getElementById("obv");
+ const count=()=>{if(reduce){ob.textContent=money(380);return}const t0=performance.now();const f=tm=>{const p=Math.min(1,(tm-t0)/900),e=1-Math.pow(1-p,3);ob.textContent=money(Math.round(380*e/5)*5);if(p<1&&box.classList.contains("done"))requestAnimationFrame(f)};requestAnimationFrame(f)};
+ const tick=()=>{k=(k+1)%5;const n=Math.min(k,3);lis.forEach((l,i)=>l.classList.toggle("on",i<n));steps.forEach((s2,i)=>s2.classList.toggle("act",i===k-1));const was=box.classList.contains("done");box.classList.toggle("done",k>=3);if(k===3&&!was)count();if(k<3)ob.textContent=money(0).replace(/0/,"—")};
  const io2=new IntersectionObserver(es=>{if(es[0].isIntersecting){io2.disconnect();tick();clearInterval(sTimer);sTimer=setInterval(tick,2300)}},{threshold:.3});
  io2.observe(box);
 }
