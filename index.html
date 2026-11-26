@@ -187,11 +187,50 @@ p{margin:0}
 .usp:hover .ic::after{opacity:1;transform:none}
 .usp:hover .ic svg{stroke:#fff}
 .usp svg *{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.6s .35s var(--ease),stroke .3s}
+@media(prefers-reduced-motion:reduce){.ux .dr{stroke-dashoffset:0}}
 .usp.in svg *,.no-io .usp svg *{stroke-dashoffset:0}
 .usp b{position:relative}
 .usp b::after{content:"";position:absolute;left:0;bottom:-8px;width:28px;height:1.5px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .8s .5s var(--ease)}
 .usp.in b::after{transform:scaleX(1)}
 .usp:hover b::after{width:56px;transition:width .5s var(--ease)}
+
+/* USP v2: open columns, animated line icons */
+.uspx{gap:0}
+.uspx .ux{position:relative;padding:34px 30px 30px;text-decoration:none;color:inherit;grid-template-rows:subgrid;border-left:1px solid rgba(20,19,17,.12);isolation:isolate;overflow:hidden;transition:background .5s}
+.uspx .ux:first-child{border-left:0}
+.uspx .ux::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.75),transparent 70%);opacity:0;transition:opacity .5s}
+.uspx .ux:hover::before{opacity:1}
+.uspx .ux::after{content:"";position:absolute;left:30px;right:30px;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.uspx .ux:hover::after{transform:scaleX(1)}
+.uic{width:72px;height:72px;display:block}
+.uic svg{width:72px;height:72px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+.uspx b{font:400 34px/1.05 "Instrument Serif",serif;letter-spacing:-.01em;align-self:end;white-space:nowrap}
+.uspx p{color:var(--muted);font-size:15px;max-width:22em}
+.ux-n{position:absolute;top:30px;right:28px;font:600 12px Manrope,sans-serif;color:var(--muted);letter-spacing:.08em}
+/* 1 shield draws itself, then a glint */
+.ux .dr{stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.6s .3s var(--ease)}
+.ux .dr.d2{stroke:var(--gold);stroke-width:2.2;transition-delay:1.2s}
+.ux.in .dr{stroke-dashoffset:0}
+.ux .glint{stroke:#fff;stroke-width:3;opacity:0;animation:glint 4s 2.5s ease-in-out infinite}
+@keyframes glint{0%,70%,100%{opacity:0;transform:translate(0,0)}80%{opacity:.9}90%{opacity:0;transform:translate(18px,20px)}}
+/* 2 trade-in arrows orbit a watch */
+.ux .face{stroke:var(--gold);stroke-width:2}
+.ux .hands{stroke:var(--ink)}
+.ux .orbit{transform-origin:36px 36px;animation:orbit 6s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes orbit{0%,25%{transform:rotate(0)}75%,100%{transform:rotate(180deg)}}
+/* 3 parcel drives along the road */
+.ux .road{stroke-dasharray:3 5;stroke:var(--sand);animation:road .6s linear infinite}
+@keyframes road{to{stroke-dashoffset:-8}}
+.ux .van{animation:van 2.4s ease-in-out infinite}
+.ux .van path:not(.spd){fill:var(--bg)}
+.ux .spd{stroke:var(--gold)}
+@keyframes van{50%{transform:translate(4px,-2px)}}
+/* 4 stars fill one by one */
+.ux [class^=st]{fill:transparent;stroke:var(--ink);stroke-width:1.8;animation:starf 5s infinite}
+.ux .st1{animation-delay:.3s}.ux .st2{animation-delay:.6s}
+@keyframes starf{0%,8%{fill:transparent;stroke:var(--ink)}18%,80%{fill:var(--gold);stroke:var(--gold)}92%,100%{fill:transparent;stroke:var(--ink)}}
+@media(max-width:1000px){.uspx .ux:nth-child(3){border-left:0}.uspx .ux{border-top:1px solid rgba(20,19,17,.12)}.uspx .ux:nth-child(-n+2){border-top:0}}
+@media(max-width:560px){.uspx .ux{border-left:0!important;border-top:1px solid rgba(20,19,17,.12)!important;padding:28px 6px}.uspx .ux:first-child{border-top:0!important}.uspx b{font-size:30px}}
 
 /* watch cards */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
@@ -272,7 +311,7 @@ p{margin:0}
 .score .n{font:400 clamp(80px,10vw,128px)/.85 "Instrument Serif",serif}
 .score .stars svg{width:22px;height:22px}
 .rq{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.rq .tr{display:flex;gap:20px;width:max-content;animation:mq 55s linear infinite;padding:6px 0}
+.rq .tr{display:flex;gap:20px;width:max-content;animation:mq 230s linear infinite;padding:6px 0}
 @keyframes mq{to{transform:translateX(-50%)}}
 .rq:hover .tr{animation-play-state:paused}
 .rq + .rq{margin-top:20px}
@@ -290,6 +329,8 @@ p{margin:0}
 .featq blockquote::before{content:"\201C";color:var(--gold)}.featq blockquote::after{content:"\201D";color:var(--gold)}
 .featq figcaption{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
 .featq figcaption b{color:var(--ink)}
+.rvpol{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);max-width:760px}
+.rvpol a{color:inherit}
 .featq .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:13px;font-weight:600}
 
 /* about band */
@@ -607,9 +648,9 @@ nl:{photo:"Foto",incl_live:"Inclusief verzending binnen Nederland.",trade_btn:"R
 sw_lang:"Taal",sw_cur:"Valuta",sw_note:"Andere valuta zijn een indicatie. Afrekenen gebeurt in euro.",
 hero_sub:"Gecontroleerde tweedehands horloges, eerlijk geprijsd.",hero_c1:"Bekijk de collectie",hero_c2:"Verkoop je horloge",on_vinted:"op Vinted",reviews:"70+ reviews",
 new_t:"Nieuw binnen",new_s:"Net gecontroleerd en klaar voor een nieuwe eigenaar.",all:"Alle horloges",demo:"Demo-voorraad: de horloges en prijzen zijn voorbeelden.",
-u1t:"Echtheid gecontroleerd",u1p:"Referentie, uurwerk en details gecheckt voordat het online komt.",u2t:"Eerlijke marktprijs",u2p:"Geprijsd met actuele verkopen op Chrono24, Catawiki en Vinted.",u3t:"Veilig verzonden",u3p:"Stevig en discreet verpakt, altijd met track & trace verstuurd.",u4t:"70+ reviews",u4p:"Allemaal vijf sterren van kopers op ons Vinted-profiel.",
+u1t:"Gecontroleerd",u1p:"Referentie, uurwerk en details gecheckt voor het online komt.",u2t:"Inruilen",u2p:"Ruil je oude horloge in en betaal alleen het verschil.",u3t:"Snel verzonden",u3p:"Meestal binnen 24 uur onderweg, altijd met track & trace.",u4t:"70+ reviews",u4p:"Vijf sterren gemiddeld van kopers op ons Vinted-profiel.",
 sb_t:"Je horloge verkopen? Wij kopen het.",sb_p:"Geen advertenties, geen onderhandelen met onbekenden. Stuur je horloge in en ontvang een vrijblijvend bod.",s1t:"Stuur foto's in",s1p:"Gegevens invullen en foto's uploaden.",s2t:"Ontvang een bod",s2p:"Eerlijk, op basis van de markt.",s3t:"Direct geregeld",s3p:"Akkoord? Wij betalen snel uit.",sb_c:"Horloge aanbieden",of_card:"Jouw aanbieding",of_ex:"Voorbeeld",os1:"Foto's ontvangen",os2:"Marktwaarde bepaald",os3:"Bod verstuurd",of_bid:"Ons bod",
-rv_t:"reviews op Vinted",rv_all:"Alle reviews op Vinted",
+rv_t:"reviews op Vinted",rv_pol:"Over deze reviews: alle reviews komen van kopers op ons <a href=\"https://www.vinted.nl/member/287831145\">Vinted-profiel</a>. Op Vinted kun je alleen een review geven na een afgeronde aankoop. Hier staat een selectie van de geschreven reviews; de score van 5 sterren uit 74 reviews berekent Vinted zelf. Namen zijn afgekort voor de privacy van de kopers. We betalen of belonen niet voor reviews.",rv_all:"Alle reviews op Vinted",
 ab_t:"Twee liefhebbers. Eén eerlijke werkwijze.",ab_p:"LUMAR is opgezet door Luuk en Marijn. We verkopen horloges die we zelf zouden dragen en zeggen eerlijk wat de staat is.",ab_ig:"Volg @lumar.watches",
 f_tag:"Gecontroleerde tweedehands horloges, eerlijk geprijsd.",f_shop:"Shop",f_follow:"Volg ons",f_info:"Info",f_terms:"Algemene voorwaarden",f_priv:"Privacyverklaring",f_ret:"Retourneren",f_kvk:"KvK-nummer wordt na inschrijving vermeld",
 st_av:"Beschikbaar",st_res:"Gereserveerd",st_sold:"Verkocht",view:"Bekijk horloge",
@@ -635,9 +676,9 @@ en:{photo:"Photo",incl_live:"Including shipping within the Netherlands.",trade_b
 sw_lang:"Language",sw_cur:"Currency",sw_note:"Other currencies are indicative. Payment is in euros.",
 hero_sub:"Checked pre-owned watches, fairly priced.",hero_c1:"Shop the collection",hero_c2:"Sell your watch",on_vinted:"on Vinted",reviews:"70+ reviews",
 new_t:"New arrivals",new_s:"Freshly checked and ready for a new owner.",all:"All watches",demo:"Demo stock: watches and prices are examples.",
-u1t:"Authenticity checked",u1p:"Reference, movement and details checked before going online.",u2t:"Fair market price",u2p:"Priced against recent sales on Chrono24, Catawiki and Vinted.",u3t:"Shipped safely",u3p:"Packed securely and discreetly, always sent with tracking.",u4t:"70+ reviews",u4p:"All five stars from buyers on our Vinted profile.",
+u1t:"Checked",u1p:"Reference, movement and details checked before going online.",u2t:"Trade in",u2p:"Trade in your old watch and only pay the difference.",u3t:"Fast shipping",u3p:"Usually on its way within 24 hours, always with tracking.",u4t:"70+ reviews",u4p:"A five-star average from buyers on our Vinted profile.",
 sb_t:"Selling your watch? We'll buy it.",sb_p:"No listings, no haggling with strangers. Send in your watch and get a no-obligation offer.",s1t:"Send photos",s1p:"Fill in the details and upload photos.",s2t:"Get an offer",s2p:"Fair and based on the market.",s3t:"Sorted quickly",s3p:"Agreed? We pay out fast.",sb_c:"Offer your watch",of_card:"Your offer",of_ex:"Example",os1:"Photos received",os2:"Market value set",os3:"Offer sent",of_bid:"Our offer",
-rv_t:"reviews on Vinted",rv_all:"All reviews on Vinted",
+rv_t:"reviews on Vinted",rv_pol:"About these reviews: all reviews come from buyers on our <a href=\"https://www.vinted.nl/member/287831145\">Vinted profile</a>. On Vinted you can only leave a review after a completed purchase. Shown here is a selection of the written reviews; the 5-star score from 74 reviews is calculated by Vinted itself. Names are shortened to protect buyers' privacy. We never pay or reward anyone for reviews.",rv_all:"All reviews on Vinted",
 ab_t:"Two enthusiasts. One honest approach.",ab_p:"LUMAR was founded by Luuk and Marijn. We sell watches we would wear ourselves, and we're honest about their condition.",ab_ig:"Follow @lumar.watches",
 f_tag:"Checked pre-owned watches, fairly priced.",f_shop:"Shop",f_follow:"Follow us",f_info:"Info",f_terms:"Terms and conditions",f_priv:"Privacy policy",f_ret:"Returns",f_kvk:"Chamber of Commerce number will be listed after registration",
 st_av:"Available",st_res:"Reserved",st_sold:"Sold",view:"View watch",
@@ -803,7 +844,8 @@ const ico={
  star:'<svg viewBox="0 0 32 32"><path d="M16 4l3.7 7.6 8.3 1.2-6 5.9 1.4 8.3L16 23l-7.4 4 1.4-8.3-6-5.9 8.3-1.2z"/></svg>',
  lock:'<svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>'
 };
-const revCard=r=>`<article class="rc"><div>${stars}</div><div><q>${esc(r.t)}</q>${r.c!==lang?`<small>${esc(r[lang])}</small>`:""}</div><div class="who"><span class="av">${esc(r.u[0].toUpperCase())}</span><span>${esc(r.u)}</span><span>${esc(tx(r.l))}</span></div></article>`;
+const anon=u=>u[0].toUpperCase()+".";
+const revCard=r=>`<article class="rc"><div>${stars}</div><div><q>${esc(r.t)}</q>${r.c!==lang?`<small>${esc(r[lang])}</small>`:""}</div><div class="who"><span class="av">${esc(r.u[0].toUpperCase())}</span><span>${esc(anon(r.u))}</span><span>${esc(tx(r.l))}</span></div></article>`;
 
 /* ---------- home ---------- */
 const DEMO_HERO=["tissot-prx-blauw","tissot-seastar-1000-zwart","tissot-ballade-blauw","tissot-gentleman-blauw","tissot-prx-groen","tissot-seastar-1000-blauw"];
@@ -841,8 +883,11 @@ function home(){
  ${LIVE?"":`<p class="demo">${t("demo")}</p>`}
 </div></section>
 
-<section class="usps band" id="usps"><div class="wrap"><div class="row4">
-  ${[["shield","u1"],["scale","u2"],["box","u3"],["star","u4"]].map(([ic,k],i)=>`<div class="cell usp rv dl${i}"><span class="num">0${i+1}</span><span class="ic">${ico[ic].replace(/<(path|rect|circle)/g,'<$1 pathLength="100"')}</span><b>${t(k+"t")}</b><p>${t(k+"p")}</p></div>`).join("")}
+<section class="usps band" id="usps"><div class="wrap"><div class="row4 uspx">
+  <a class="cell ux rv" href="#voorwaarden-garantie"><span class="uic"><svg viewBox="0 0 72 72"><path class="dr" pathLength="100" d="M36 8l22 8v16c0 15-10 25-22 30C24 57 14 47 14 32V16z"/><path class="dr d2" pathLength="100" d="M26 36l7 7 14-15"/><path class="glint" d="M20 18l10-4"/></svg></span><b>${t("u1t")}</b><p>${t("u1p")}</p><span class="ux-n">01</span></a>
+  <a class="cell ux rv dl1" href="#aanbieden"><span class="uic"><svg viewBox="0 0 72 72"><circle cx="36" cy="36" r="11" class="face"/><path d="M36 30v6l4 3" class="hands"/><g class="orbit"><path pathLength="100" d="M14 30a23 23 0 0 1 38-12"/><path d="M48 12l4 6-7 1"/><path pathLength="100" d="M58 42a23 23 0 0 1-38 12"/><path d="M24 60l-4-6 7-1"/></g></svg></span><b>${t("u2t")}</b><p>${t("u2p")}</p><span class="ux-n">02</span></a>
+  <a class="cell ux rv dl2" href="#voorwaarden"><span class="uic"><svg viewBox="0 0 72 72"><path class="road" d="M6 56h60"/><g transform="translate(-10 -14) scale(1.32)"><g class="van"><path d="M18 28l14-7 14 7v16l-14 7-14-7z"/><path d="M18 28l14 7 14-7M32 35v16"/><path class="spd" d="M4 32h8M2 38h10M6 44h6"/></g></g></svg></span><b>${t("u3t")}</b><p>${t("u3p")}</p><span class="ux-n">03</span></a>
+  <a class="cell ux rv dl3" href="${VINTED}"><span class="uic"><svg viewBox="0 0 72 72">${[[2,30,.62,1],[20,14,1.05,0],[46,30,.62,2]].map(([x,y,k,i])=>`<path class="st${i}" transform="translate(${x} ${y}) scale(${k})" d="M16 2l4.3 8.8 9.7 1.4-7 6.9 1.6 9.6L16 24.2 7.4 28.7 9 19.1 2 12.2l9.7-1.4z"/>`).join("")}</svg></span><b>${t("u4t")}</b><p>${t("u4p")}</p><span class="ux-n">04</span></a>
 </div></div></section>
 
 <section class="dark band sellband"><div class="grain"></div><div class="sglow"></div><div class="wrap">
@@ -886,7 +931,7 @@ function home(){
 </div>
  <div class="rq"><div class="tr">${loop(r1)}</div></div>
  <div class="rq rev"><div class="tr">${loop(r2)}</div></div>
- <div class="wrap" style="padding-inline:max(5vw,16px)"><figure class="featq rv"><div>${stars}</div><blockquote>${esc(FEATURED[lang])}</blockquote><figcaption><span class="av">${FEATURED.u[0].toUpperCase()}</span><b>${FEATURED.u}</b><span>${lang==="en"?"Review on Vinted, translated from Dutch":"Review op Vinted"}</span></figcaption></figure></div>
+ <div class="wrap" style="padding-inline:max(5vw,16px)"><figure class="featq rv"><div>${stars}</div><blockquote>${esc(FEATURED[lang])}</blockquote><figcaption><span class="av">${FEATURED.u[0].toUpperCase()}</span><b>${anon(FEATURED.u)}</b><span>${lang==="en"?"Review on Vinted, translated from Dutch":"Review op Vinted"}</span></figcaption></figure><p class="rvpol">${t("rv_pol")}</p></div>
 </section>
 
 <section class="dark band about"><div class="grain"></div><div class="wrap">
@@ -1405,7 +1450,7 @@ function countUp(){
 }
 function fxCards(){
  if(!fine)return;
- document.querySelectorAll(".card:not([data-fx]),.usp:not([data-fx])").forEach(c=>{c.dataset.fx=1;
+ document.querySelectorAll(".card:not([data-fx]),.usp:not([data-fx]),.ux:not([data-fx])").forEach(c=>{c.dataset.fx=1;
   c.addEventListener("mousemove",e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
    c.style.setProperty("--mx",x*100+"%");c.style.setProperty("--my",y*100+"%");c.style.setProperty("--ry",(x-.5)*10+"deg");c.style.setProperty("--rx",(.5-y)*10+"deg")});
  });
