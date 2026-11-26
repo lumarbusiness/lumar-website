@@ -284,6 +284,14 @@ p{margin:0}
 .rc .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:13px}
 .rc .who span:last-child{color:var(--muted);font-weight:500;margin-left:auto}
 
+.featq{margin:56px 0 0;display:grid;grid-template-columns:minmax(0,1fr);gap:18px;max-width:900px}
+.featq .stars svg{width:20px;height:20px}
+.featq blockquote{margin:0;font:400 clamp(24px,2.6vw,34px)/1.25 "Instrument Serif",serif;text-wrap:pretty}
+.featq blockquote::before{content:"\201C";color:var(--gold)}.featq blockquote::after{content:"\201D";color:var(--gold)}
+.featq figcaption{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.featq figcaption b{color:var(--ink)}
+.featq .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:13px;font-weight:600}
+
 /* about band */
 .about .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:end;position:relative;z-index:2}
 .about p{color:var(--vitmuted);font-size:17px;margin-bottom:28px}
@@ -597,9 +605,9 @@ const tx=o=>o&&typeof o==="object"?o[lang]:o;
 const I={
 nl:{photo:"Foto",incl_live:"Inclusief verzending binnen Nederland.",trade_btn:"Ruil je horloge in voor deze",trade_lbl:"Inruilen voor een horloge uit de collectie",trade_none:"Niet inruilen, alleen verkopen",trade_note:"Ons bod verrekenen we met de prijs van dit horloge.",sum_trade:"Inruilen voor",tr_t:"Ruil je horloge in",tr_s:"Stuur je horloge in, wij verrekenen ons bod met je nieuwe horloge.",st_nav:"Status aanbieding",st_t:"Status van je aanbieding",st_s:"Vul je referentie en e-mailadres in om te zien hoe het ervoor staat.",st_ref:"Referentie",st_btn:"Bekijk status",st_nf:"We vinden geen aanbieding met deze referentie en dit e-mailadres. Controleer beide en probeer het opnieuw.",st_off:"We kunnen nu geen verbinding maken. Probeer het later opnieuw of mail ons.",st_demo:"Demo: geen verbinding met de app, dit is een voorbeeld van hoe de status eruitziet.",st_hint:"Je referentie staat in de bevestiging na het insturen, bijvoorbeeld LMR-4F2A9C.",st_offer:"Ons bod",st_upd:"Laatst bijgewerkt",st_note:"Toelichting",ss_received:"Ontvangen",ss_reviewing:"In beoordeling",ss_offer_sent:"Bod verstuurd",ss_accepted:"Akkoord",ss_paid:"Betaald",ss_declined:"Niet aangekocht",st_tradein:"Inruil",st_sell:"Verkoop",al_band_t:"Niet gevonden wat je zoekt?",al_band_p:"Laat weten welk horloge je zoekt. Zodra we er een binnen hebben, krijg je als eerste een mail.",al_btn:"Zoekopdracht instellen",al_t:"Zoekopdracht",al_max:"Maximale prijs",al_ok:"LUMAR mag me hierover mailen. Afmelden kan altijd.",al_send:"Zet zoekopdracht aan",al_done_t:"Je zoekopdracht staat aan",al_done_p:"We mailen je zodra we een {b} binnen hebben.",al_err:"Vul een merk en een geldig e-mailadres in en geef toestemming.",al_sold:"Zoek je dit model? Zet een zoekopdracht aan",demo_saved:"Demo: zonder verbinding met de app wordt dit niet opgeslagen.",up_busy:"Foto's uploaden",sending:"Versturen",send_err:"Versturen lukte niet. Probeer het opnieuw of mail ons.",done_st:"Bekijk status",view_short:"Bekijk",zoom:"Zoom",close:"Sluiten",nav_col:"Collectie",nav_about:"Over ons",nav_sell:"Horloge verkopen",home:"Home",
 sw_lang:"Taal",sw_cur:"Valuta",sw_note:"Andere valuta zijn een indicatie. Afrekenen gebeurt in euro.",
-hero_sub:"Gecontroleerde tweedehands horloges, eerlijk geprijsd.",hero_c1:"Bekijk de collectie",hero_c2:"Verkoop je horloge",on_vinted:"op Vinted",reviews:"75+ reviews",
+hero_sub:"Gecontroleerde tweedehands horloges, eerlijk geprijsd.",hero_c1:"Bekijk de collectie",hero_c2:"Verkoop je horloge",on_vinted:"op Vinted",reviews:"70+ reviews",
 new_t:"Nieuw binnen",new_s:"Net gecontroleerd en klaar voor een nieuwe eigenaar.",all:"Alle horloges",demo:"Demo-voorraad: de horloges en prijzen zijn voorbeelden.",
-u1t:"Echtheid gecontroleerd",u1p:"Referentie, uurwerk en details gecheckt voordat het online komt.",u2t:"Eerlijke marktprijs",u2p:"Geprijsd met actuele verkopen op Chrono24, Catawiki en Vinted.",u3t:"Veilig verzonden",u3p:"Stevig en discreet verpakt, altijd met track & trace verstuurd.",u4t:"75+ reviews",u4p:"Allemaal vijf sterren van kopers op ons Vinted-profiel.",
+u1t:"Echtheid gecontroleerd",u1p:"Referentie, uurwerk en details gecheckt voordat het online komt.",u2t:"Eerlijke marktprijs",u2p:"Geprijsd met actuele verkopen op Chrono24, Catawiki en Vinted.",u3t:"Veilig verzonden",u3p:"Stevig en discreet verpakt, altijd met track & trace verstuurd.",u4t:"70+ reviews",u4p:"Allemaal vijf sterren van kopers op ons Vinted-profiel.",
 sb_t:"Je horloge verkopen? Wij kopen het.",sb_p:"Geen advertenties, geen onderhandelen met onbekenden. Stuur je horloge in en ontvang een vrijblijvend bod.",s1t:"Stuur foto's in",s1p:"Gegevens invullen en foto's uploaden.",s2t:"Ontvang een bod",s2p:"Eerlijk, op basis van de markt.",s3t:"Direct geregeld",s3p:"Akkoord? Wij betalen snel uit.",sb_c:"Horloge aanbieden",of_card:"Jouw aanbieding",of_ex:"Voorbeeld",os1:"Foto's ontvangen",os2:"Marktwaarde bepaald",os3:"Bod verstuurd",of_bid:"Ons bod",
 rv_t:"reviews op Vinted",rv_all:"Alle reviews op Vinted",
 ab_t:"Twee liefhebbers. Eén eerlijke werkwijze.",ab_p:"LUMAR is opgezet door Luuk en Marijn. We verkopen horloges die we zelf zouden dragen en zeggen eerlijk wat de staat is.",ab_ig:"Volg @lumar.watches",
@@ -625,9 +633,9 @@ done_t:"Bedankt, aanbieding ontvangen.",done_p:"We sturen ons bod naar {m}.",don
 about_s:"Klein, persoonlijk en eerlijk.",privacy:"Privacyverklaring",terms_t:"Algemene voorwaarden",updated:"Laatst bijgewerkt: 25 november 2026"},
 en:{photo:"Photo",incl_live:"Including shipping within the Netherlands.",trade_btn:"Trade in your watch for this one",trade_lbl:"Trade in for a watch from the collection",trade_none:"No trade-in, just sell",trade_note:"We deduct our offer from the price of this watch.",sum_trade:"Trade in for",tr_t:"Trade in your watch",tr_s:"Send in your watch and we deduct our offer from your new one.",st_nav:"Offer status",st_t:"Your offer status",st_s:"Enter your reference and email address to see where things stand.",st_ref:"Reference",st_btn:"Check status",st_nf:"We can't find an offer with this reference and email address. Check both and try again.",st_off:"We can't connect right now. Please try again later or email us.",st_demo:"Demo: no connection to the app, this is an example of how the status looks.",st_hint:"Your reference is in the confirmation after sending, for example LMR-4F2A9C.",st_offer:"Our offer",st_upd:"Last updated",st_note:"Note",ss_received:"Received",ss_reviewing:"Under review",ss_offer_sent:"Offer sent",ss_accepted:"Accepted",ss_paid:"Paid",ss_declined:"Not purchased",st_tradein:"Trade-in",st_sell:"Sale",al_band_t:"Can't find what you're looking for?",al_band_p:"Tell us which watch you're after. As soon as we have one, you'll be the first to get an email.",al_btn:"Set up an alert",al_t:"Watch alert",al_max:"Maximum price",al_ok:"LUMAR may email me about this. I can unsubscribe at any time.",al_send:"Turn on alert",al_done_t:"Your alert is on",al_done_p:"We'll email you as soon as we have a {b}.",al_err:"Enter a brand and a valid email address and give permission.",al_sold:"Looking for this model? Set up an alert",demo_saved:"Demo: without a connection to the app this is not saved.",up_busy:"Uploading photos",sending:"Sending",send_err:"Sending failed. Please try again or email us.",done_st:"Check status",view_short:"View",zoom:"Zoom",close:"Close",nav_col:"Collection",nav_about:"About",nav_sell:"Sell your watch",home:"Home",
 sw_lang:"Language",sw_cur:"Currency",sw_note:"Other currencies are indicative. Payment is in euros.",
-hero_sub:"Checked pre-owned watches, fairly priced.",hero_c1:"Shop the collection",hero_c2:"Sell your watch",on_vinted:"on Vinted",reviews:"75+ reviews",
+hero_sub:"Checked pre-owned watches, fairly priced.",hero_c1:"Shop the collection",hero_c2:"Sell your watch",on_vinted:"on Vinted",reviews:"70+ reviews",
 new_t:"New arrivals",new_s:"Freshly checked and ready for a new owner.",all:"All watches",demo:"Demo stock: watches and prices are examples.",
-u1t:"Authenticity checked",u1p:"Reference, movement and details checked before going online.",u2t:"Fair market price",u2p:"Priced against recent sales on Chrono24, Catawiki and Vinted.",u3t:"Shipped safely",u3p:"Packed securely and discreetly, always sent with tracking.",u4t:"75+ reviews",u4p:"All five stars from buyers on our Vinted profile.",
+u1t:"Authenticity checked",u1p:"Reference, movement and details checked before going online.",u2t:"Fair market price",u2p:"Priced against recent sales on Chrono24, Catawiki and Vinted.",u3t:"Shipped safely",u3p:"Packed securely and discreetly, always sent with tracking.",u4t:"70+ reviews",u4p:"All five stars from buyers on our Vinted profile.",
 sb_t:"Selling your watch? We'll buy it.",sb_p:"No listings, no haggling with strangers. Send in your watch and get a no-obligation offer.",s1t:"Send photos",s1p:"Fill in the details and upload photos.",s2t:"Get an offer",s2p:"Fair and based on the market.",s3t:"Sorted quickly",s3p:"Agreed? We pay out fast.",sb_c:"Offer your watch",of_card:"Your offer",of_ex:"Example",os1:"Photos received",os2:"Market value set",os3:"Offer sent",of_bid:"Our offer",
 rv_t:"reviews on Vinted",rv_all:"All reviews on Vinted",
 ab_t:"Two enthusiasts. One honest approach.",ab_p:"LUMAR was founded by Luuk and Marijn. We sell watches we would wear ourselves, and we're honest about their condition.",ab_ig:"Follow @lumar.watches",
@@ -687,16 +695,36 @@ async function loadCatalog(){
   if(Array.isArray(rows)&&rows.length){WATCHES.length=0;rows.forEach(r=>WATCHES.push(fromRow(r)));LIVE=true;const y=window.scrollY;route(true);window.scrollTo(0,y)}
  }catch(e){/* geen verbinding (bijv. in de voorbeeldweergave): demo-voorraad blijft staan */}
 }
+/* Echte reviews van het Vinted-profiel (lumar_watches), met vertaling */
 const REVIEWS=[
- {u:"thewatchlab_22",t:"Persona seria, lo recomiendo",nl:"Betrouwbaar persoon, een aanrader.",en:"Trustworthy person, I recommend them.",l:{nl:"Spaans",en:"Spanish"}},
- {u:"davide041979",t:"Gentilezza e cordialita. Consigliato ottimo",nl:"Vriendelijk en hartelijk. Echt een aanrader.",en:"Kind and friendly. Highly recommended.",l:{nl:"Italiaans",en:"Italian"}},
- {u:"norwin.br",t:"Alles perfekt, kann man nur weiterempfehlen",nl:"Alles perfect, alleen maar aan te raden.",en:"Everything perfect, can only recommend.",l:{nl:"Duits",en:"German"}},
- {u:"shrksy",t:"Exzellent. Super Verkäufer.",nl:"Uitstekend. Super verkoper.",en:"Excellent. Great seller.",l:{nl:"Duits",en:"German"}},
- {u:"mikee33b",t:"Parfait",nl:"Perfect.",en:"Perfect.",l:{nl:"Frans",en:"French"}},
- {u:"lilyberry92420",t:"Très bonne communication. Merci",nl:"Heel goede communicatie. Bedankt.",en:"Very good communication. Thank you.",l:{nl:"Frans",en:"French"}},
- {u:"rosariokappa",t:"acquirente top",nl:"Topkoper.",en:"Top buyer.",l:{nl:"Italiaans",en:"Italian"}},
- {u:"yilam481",t:"Perfecto gracias",nl:"Perfect, bedankt.",en:"Perfect, thank you.",l:{nl:"Spaans",en:"Spanish"}}
+ {u:"thewatchlab_22",t:"Persona seria, lo recomiendo",nl:"Betrouwbaar persoon, een aanrader.",en:"Trustworthy person, I recommend them.",c:"es",l:{nl:"Spaans",en:"Spanish"}},
+ {u:"davide041979",t:"Gentilezza e cordialità. Consigliato, ottimo",nl:"Vriendelijk en hartelijk. Echt een aanrader.",en:"Kind and friendly. Highly recommended.",c:"it",l:{nl:"Italiaans",en:"Italian"}},
+ {u:"norwin.br",t:"Alles perfekt, kann man nur weiterempfehlen",nl:"Alles perfect, alleen maar aan te raden.",en:"Everything perfect, can only recommend.",c:"de",l:{nl:"Duits",en:"German"}},
+ {u:"shrksy",t:"Exzellent. Super Verkäufer.",nl:"Uitstekend. Super verkoper.",en:"Excellent. Great seller.",c:"de",l:{nl:"Duits",en:"German"}},
+ {u:"juliom632",t:"Muy amable.",nl:"Heel vriendelijk.",en:"Very kind.",c:"es",l:{nl:"Spaans",en:"Spanish"}},
+ {u:"mikee33b",t:"Parfait",nl:"Perfect.",en:"Perfect.",c:"fr",l:{nl:"Frans",en:"French"}},
+ {u:"lilyberry92420",t:"Très bonne communication. Merci",nl:"Heel goede communicatie. Bedankt.",en:"Very good communication. Thank you.",c:"fr",l:{nl:"Frans",en:"French"}},
+ {u:"yilam481",t:"Perfecto, gracias",nl:"Perfect, bedankt.",en:"Perfect, thank you.",c:"es",l:{nl:"Spaans",en:"Spanish"}},
+ {u:"viriki_watches",t:"Todo perfecto!! 100% recomendable",nl:"Alles perfect! 100% aan te raden.",en:"Everything perfect! 100% recommended.",c:"es",l:{nl:"Spaans",en:"Spanish"}},
+ {u:"luxery1010",t:"Un gros 10/10 !!",nl:"Een dikke 10/10!",en:"A solid 10/10!",c:"fr",l:{nl:"Frans",en:"French"}},
+ {u:"leo2014b",t:"Alles super geklappt, danke",nl:"Alles ging super, bedankt.",en:"Everything went great, thanks.",c:"de",l:{nl:"Duits",en:"German"}},
+ {u:"leonardbernard",t:"Tout est propre, il est bien honnêtement !!",nl:"Alles is netjes, echt top!",en:"Everything is spotless, honestly great!",c:"fr",l:{nl:"Frans",en:"French"}},
+ {u:"justinesjs",t:"Parfait, envoi rapide, je recommence",nl:"Perfect, snel verzonden, ik koop hier weer.",en:"Perfect, fast shipping, I'd buy again.",c:"fr",l:{nl:"Frans",en:"French"}},
+ {u:"elemexx",t:"Perfetto",nl:"Perfect.",en:"Perfect.",c:"it",l:{nl:"Italiaans",en:"Italian"}},
+ {u:"marias1193",t:"Great",nl:"Geweldig.",en:"Great.",c:"en",l:{nl:"Engels",en:"English"}},
+ {u:"jessemichiels",t:"Zeer betrouwbaar!!",nl:"Zeer betrouwbaar!",en:"Very reliable!",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"unisteph",t:"Perfect, goede communicatie! Erg prettig!",nl:"Perfect, goede communicatie! Erg prettig!",en:"Perfect, good communication! Very pleasant!",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"colinvanschalkwijk",t:"Aardig, snelle service en top kwaliteit",nl:"Aardig, snelle service en top kwaliteit.",en:"Friendly, fast service and top quality.",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"charlotte72738282",t:"Vriendelijke verkoper en snelle verzending!",nl:"Vriendelijke verkoper en snelle verzending!",en:"Friendly seller and fast shipping!",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"l.h-16",t:"Perfect. Alles ging goed, snelle verzending",nl:"Perfect. Alles ging goed, snelle verzending.",en:"Perfect. Everything went well, fast shipping.",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"thijs3l",t:"Snelle levering, mooi product",nl:"Snelle levering, mooi product.",en:"Fast delivery, beautiful product.",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"sevillen",t:"Snelle verzending, mooi product",nl:"Snelle verzending, mooi product.",en:"Fast shipping, beautiful product.",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"ferrev8",t:"Een heel toffe verkoper!",nl:"Een heel toffe verkoper!",en:"A really great seller!",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"lieesjee",t:"Snelle verzending en aardige verkoper!",nl:"Snelle verzending en aardige verkoper!",en:"Fast shipping and a friendly seller!",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"chrisie2205",t:"Blij mee!!",nl:"Blij mee!",en:"Very happy with it!",c:"nl",l:{nl:"Nederlands",en:"Dutch"}},
+ {u:"latruwejelle",t:"Alles goed!",nl:"Alles goed!",en:"All good!",c:"nl",l:{nl:"Nederlands",en:"Dutch"}}
 ];
+const FEATURED={u:"tomatius",nl:"In eerste instantie was er helaas wat misgegaan met de specificaties van de bandlengte, waardoor het horloge mij niet paste. De verkoper heeft dit echter op een werkelijk fantastische en sportieve manier opgelost! Na prettig overleg is hij mij direct financieel tegemoetgekomen voor een nieuwe band. Het horloge zelf is in topstaat. Een absolute aanrader om bij te kopen!",en:"At first something had unfortunately gone wrong with the strap length specifications, so the watch didn't fit me. The seller solved this in a truly fantastic and sporting way! After a pleasant chat he immediately compensated me for a new strap. The watch itself is in top condition. Absolutely recommended to buy from!"};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const fill=(s,o)=>s.replace(/\{(\w+)\}/g,(_,k)=>o[k]??"");
 const AR='<span class="ar" aria-hidden="true">→</span>';
@@ -775,7 +803,7 @@ const ico={
  star:'<svg viewBox="0 0 32 32"><path d="M16 4l3.7 7.6 8.3 1.2-6 5.9 1.4 8.3L16 23l-7.4 4 1.4-8.3-6-5.9 8.3-1.2z"/></svg>',
  lock:'<svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>'
 };
-const revCard=r=>`<article class="rc"><div>${stars}</div><div><q>${esc(r.t)}</q><small>${esc(r[lang])}</small></div><div class="who"><span class="av">${esc(r.u[0].toUpperCase())}</span><span>${esc(r.u)}</span><span>${esc(tx(r.l))}</span></div></article>`;
+const revCard=r=>`<article class="rc"><div>${stars}</div><div><q>${esc(r.t)}</q>${r.c!==lang?`<small>${esc(r[lang])}</small>`:""}</div><div class="who"><span class="av">${esc(r.u[0].toUpperCase())}</span><span>${esc(r.u)}</span><span>${esc(tx(r.l))}</span></div></article>`;
 
 /* ---------- home ---------- */
 const DEMO_HERO=["tissot-prx-blauw","tissot-seastar-1000-zwart","tissot-ballade-blauw","tissot-gentleman-blauw","tissot-prx-groen","tissot-seastar-1000-blauw"];
@@ -854,10 +882,11 @@ function home(){
 </div></section>
 
 <section class="band" style="padding-inline:0"><div class="wrap" style="padding-inline:max(5vw,16px)">
- <div class="revhead rv"><a class="score" href="${VINTED}" aria-label="${esc(t("rv_all"))}"><span class="n"><span data-count="75">75</span>+</span><div>${stars}<h3 style="margin-top:8px">${t("rv_t")} <span class="sar" aria-hidden="true">↗</span></h3></div></a></div>
+ <div class="revhead rv"><a class="score" href="${VINTED}" aria-label="${esc(t("rv_all"))}"><span class="n"><span data-count="70">70</span>+</span><div>${stars}<h3 style="margin-top:8px">${t("rv_t")} <span class="sar" aria-hidden="true">↗</span></h3></div></a></div>
 </div>
  <div class="rq"><div class="tr">${loop(r1)}</div></div>
  <div class="rq rev"><div class="tr">${loop(r2)}</div></div>
+ <div class="wrap" style="padding-inline:max(5vw,16px)"><figure class="featq rv"><div>${stars}</div><blockquote>${esc(FEATURED[lang])}</blockquote><figcaption><span class="av">${FEATURED.u[0].toUpperCase()}</span><b>${FEATURED.u}</b><span>${lang==="en"?"Review on Vinted, translated from Dutch":"Review op Vinted"}</span></figcaption></figure></div>
 </section>
 
 <section class="dark band about"><div class="grain"></div><div class="wrap">
@@ -1242,10 +1271,10 @@ document.addEventListener("click",e=>{const a=e.target.closest("[data-alert]");i
 function about(){
  const nl=`<p style="font-size:20px;color:var(--ink)">LUMAR Watches is opgezet door Luuk en Marijn. De naam komt van onze eigen namen, en zo voelt het bedrijf ook.</p>
  <h2>Hoe we werken</h2><p>Elk horloge dat we inkopen bekijken we zelf. We controleren de referentie, het uurwerk en de details, en we beschrijven de staat zoals die is. Onze prijzen bepalen we door te vergelijken met wat vergelijkbare horloges op Chrono24, Catawiki en Vinted echt opbrengen.</p>
- <h2>Waar je ons vindt</h2><p>Naast deze website verkopen we via <a href="${VINTED}">Vinted</a>, waar we meer dan 75 reviews hebben, en via Chrono24. Bij elk horloge staat de link naar die platforms, zodat je ook daar kunt kopen met hun kopersbescherming.</p>`;
+ <h2>Waar je ons vindt</h2><p>Naast deze website verkopen we via <a href="${VINTED}">Vinted</a>, waar we meer dan 70 reviews hebben, en via Chrono24. Bij elk horloge staat de link naar die platforms, zodat je ook daar kunt kopen met hun kopersbescherming.</p>`;
  const en=`<p style="font-size:20px;color:var(--ink)">LUMAR Watches was founded by Luuk and Marijn. The name comes from our own names, and that's how the business feels too.</p>
  <h2>How we work</h2><p>We inspect every watch we buy ourselves. We check the reference, the movement and the details, and we describe the condition as it is. We set our prices by comparing what similar watches actually sell for on Chrono24, Catawiki and Vinted.</p>
- <h2>Where to find us</h2><p>Besides this website we sell on <a href="${VINTED}">Vinted</a>, where we have more than 75 reviews, and on Chrono24. Every watch links to those platforms, so you can also buy there with their buyer protection.</p>`;
+ <h2>Where to find us</h2><p>Besides this website we sell on <a href="${VINTED}">Vinted</a>, where we have more than 70 reviews, and on Chrono24. Every watch links to those platforms, so you can also buy there with their buyer protection.</p>`;
  return phead(t("nav_about"),t("about_s"),crumb(t("nav_about")))+`<section class="band"><div class="wrap"><div class="doc rv">${lang==="en"?en:nl}
  <div class="acts" style="margin-top:28px"><a class="btn mag" href="${IG}">Instagram @lumar.watches ${AR}</a><a class="btn ghost" href="#aanbieden">${t("nav_sell")}</a></div></div></div></section>`;
 }
