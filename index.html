@@ -310,7 +310,10 @@ p{margin:0}
 .score:hover h3::after{transform:scaleX(1)}
 .score .n{font:400 clamp(80px,10vw,128px)/.85 "Instrument Serif",serif}
 .score .stars svg{width:22px;height:22px}
-.rq{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent);mask:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent)}
+.rq{position:relative;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.rq::before,.rq::after{content:"";position:absolute;top:0;bottom:0;width:22%;z-index:2;pointer-events:none;-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
+.rq::before{left:0;-webkit-mask:linear-gradient(90deg,#000 20%,transparent);mask:linear-gradient(90deg,#000 20%,transparent)}
+.rq::after{right:0;-webkit-mask:linear-gradient(270deg,#000 20%,transparent);mask:linear-gradient(270deg,#000 20%,transparent)}
 .rq .tr{display:flex;gap:20px;width:max-content;animation:mq 230s linear infinite;padding:6px 0}
 @keyframes mq{to{transform:translateX(-50%)}}
 .rq:hover .tr{animation-play-state:paused}
@@ -669,17 +672,15 @@ main.pg > section:not(.hero):not(.phead) > .wrap{animation:pg .4s ease-out both}
 @media(max-width:560px){.bidpill b{font-size:24px}.thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{border-radius:16px}.card .info{padding:11px 12px 13px;gap:1px 6px}.card .brand{font-size:13px}.card .price{font-size:18px}.card .model{font-size:12px}.badge{top:8px;left:8px;font-size:11px;padding:4px 9px}.tray .ov{display:none}.row4{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(6,auto)}.f2{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 12px}footer .wrap>div:first-child{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}footer .wrap>div:first-child .logo{margin:0;font-size:32px;flex-basis:100%}footer p{font-size:13px;margin:0}footer b{font-size:13px;margin-bottom:6px}footer a{font-size:13px;padding:3px 0}footer.band{padding-top:40px;padding-bottom:20px}.legal{margin-top:24px;padding-top:14px;font-size:11px;gap:4px}.rc{width:280px}.prog div{font-size:0}.filters{grid-template-columns:minmax(0,1fr)}}
 
 /* visual upgrade 27-11 */
-.mark .ws span{display:inline-block;opacity:0;transform:translateY(60%);filter:blur(6px);animation:rise .9s var(--ease) forwards}
-@keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
+.mark .ws span{display:inline-block;opacity:0;transform:translateY(60%);filter:blur(6px);animation:wsIn .9s var(--ease) forwards}
+@keyframes wsIn{to{opacity:1;transform:none;filter:blur(0)}}
 .vw img.refl{position:absolute;left:0;top:100%;width:100%;height:100%;margin-top:2px;transform:scaleY(-1);opacity:.2;pointer-events:none;-webkit-mask:linear-gradient(to top,#000 0,transparent 38%);mask:linear-gradient(to top,#000 0,transparent 38%)}
 .vw.ph img.refl{box-shadow:none;opacity:.14}
 .alt2{position:absolute;inset:0;z-index:1;opacity:0;overflow:hidden;background:radial-gradient(circle at 50% 42%,#faf6ef 0,var(--beige) 72%);transition:opacity .7s var(--ease)}
 .alt2 img{position:absolute;inset:7%;width:86%;height:86%;object-fit:contain;transition:transform 1.2s var(--ease)!important;filter:none}
 .alt2 img.cover{inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
 @media(hover:hover){.card.has2:hover .alt2{opacity:1}.card.has2:hover .alt2 img.cover{transform:scale(1)}}
-.featq{position:relative;isolation:isolate}
-.featq::before{content:"\201C";position:absolute;z-index:-1;left:-.06em;top:-.42em;font:400 clamp(220px,26vw,340px)/1 "Instrument Serif",serif;color:var(--gold);opacity:.16;pointer-events:none}
-@media(max-width:560px){.rq{-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}}
+@media(max-width:560px){.rq::before,.rq::after{width:16%;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}}
 @media(min-width:1001px){.filters{position:sticky;top:84px;z-index:20;padding:10px;margin-inline:-10px;border-radius:999px;background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);border:1px solid transparent;transition:top .5s var(--ease),box-shadow .4s,border-color .4s}
 .filters.stuck{border-color:var(--line);box-shadow:0 18px 40px -28px rgba(20,19,17,.45)}
 body:has(.top.slim) .filters{top:66px}}
@@ -694,20 +695,29 @@ body:has(.top.slim) .filters{top:66px}}
 .prog .pline{position:absolute;left:0;top:0;height:2px;width:calc(12.5% + var(--p)*75%);border-radius:2px;background:linear-gradient(90deg,var(--gold),#d9bd86);box-shadow:0 0 12px rgba(196,164,107,.6);transition:width .9s var(--ease)}
 .prog .pline::after{content:"";position:absolute;right:-5px;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(196,164,107,.2)}
 .prog div{position:relative;text-align:center;transition:color .5s}
-.slot:not(.has){animation:breathe 2.8s ease-in-out infinite}
+.slot:not(.has){animation:slotBreathe 2.8s ease-in-out infinite}
 .slots .slot:nth-child(2n):not(.has){animation-delay:-.7s}.slots .slot:nth-child(3n):not(.has){animation-delay:-1.4s}
-@keyframes breathe{0%,100%{border-color:var(--sand);background-color:var(--beige2)}50%{border-color:var(--gold);background-color:#f3ecdf}}
-.vcard .slot:not(.has){animation-name:breatheD}
-@keyframes breatheD{0%,100%{border-color:#3a342a}50%{border-color:rgba(196,164,107,.8)}}
+@keyframes slotBreathe{0%,100%{border-color:var(--sand);background-color:var(--beige2)}50%{border-color:var(--gold);background-color:#f3ecdf}}
+.vcard .slot:not(.has){animation-name:slotBreatheD}
+@keyframes slotBreatheD{0%,100%{border-color:#3a342a}50%{border-color:rgba(196,164,107,.8)}}
 @media(prefers-reduced-motion:reduce){.slot{animation:none!important}}
 .nav{transition:padding .5s var(--ease)}
 .logo{transition:opacity .5s,font-size .5s var(--ease)}
 .top.slim .nav{padding-top:9px;padding-bottom:9px}
 .top.slim .logo{font-size:24px}
 .top.solid.slim{background:rgba(255,255,255,.84);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4)}
-footer{overflow:hidden}
-footer.band{padding-bottom:0}
-.fmega{font:400 clamp(96px,21vw,330px)/.74 "Instrument Serif",serif;letter-spacing:.02em;text-align:center;margin:clamp(24px,3vw,44px) -5vw -.2em;white-space:nowrap;background:linear-gradient(180deg,rgba(243,237,227,.26),rgba(196,164,107,.08) 60%,rgba(243,237,227,0) 92%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;pointer-events:none}
+footer.band{padding:34px max(5vw,16px) 22px}
+.fbar{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:20px 40px;flex-wrap:wrap}
+footer .flogo{display:flex;align-items:baseline;gap:10px;padding:0;color:var(--vitink);font:400 34px/1 "Instrument Serif",serif;letter-spacing:.06em}
+footer .flogo small{font:600 10px/1 Manrope,sans-serif;letter-spacing:.42em;color:var(--gold)}
+.flinks,.fsoc{display:flex;flex-wrap:wrap;gap:4px 24px}
+.flinks{margin-left:auto}
+.fsoc{padding-left:28px;border-left:1px solid #2c2720}
+footer .flinks a,footer .fsoc a{display:inline;font-size:14px;padding:4px 0}
+.fmeta{max-width:1240px;margin:22px auto 0;padding-top:16px;border-top:1px solid #24201a;display:flex;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;font-size:12.5px}
+footer .fmeta a{display:inline;padding:0;font-size:12.5px}
+@media(max-width:1000px){.flinks{margin-left:0;flex-basis:100%;order:2}.fsoc{margin-left:auto;padding-left:0;border:0}}
+@media(max-width:560px){footer.band{padding-top:28px}.fbar{gap:14px}.flinks{gap:2px 18px}.fsoc{flex-basis:100%;order:3;margin:0;gap:2px 18px}.fmeta{flex-direction:column;gap:4px;margin-top:16px}}
 .tlay{display:grid;grid-template-columns:220px minmax(0,760px);gap:clamp(32px,5vw,80px);align-items:start}
 .tside{position:sticky;top:96px;display:grid;gap:2px;padding-top:44px}
 .tside b{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
@@ -1543,11 +1553,7 @@ function about(){
  <h2>How we work</h2><p>We inspect every watch we buy ourselves. We check the reference, the movement and the details, and we describe the condition as it is. We set our prices by comparing what similar watches actually sell for on Chrono24, Catawiki and Vinted.</p>
  <h2>Where to find us</h2><p>Besides this website we sell on <a href="${VINTED}">Vinted</a>, where we have more than 70 reviews, and on Chrono24. Every watch links to those platforms, so you can also buy there with their buyer protection.</p>`;
  return phead(t("nav_about"),t("about_s"),crumb(t("nav_about")))+`<section class="band"><div class="wrap"><div class="doc rv">${lang==="en"?en:nl}
- <div class="acts" style="margin-top:28px"><a class="btn mag" href="${IG}">Instagram @lumar.watches ${AR}</a><a class="btn ghost" href="#aanbieden">${t("nav_sell")}</a></div></div></div></section>
-<section class="dark band about"><div class="grain"></div><div class="wrap">
- <h2 class="rv">${t("ab_t")}</h2>
- <div class="rv dl1"><p>${t("ab_p")}</p><div class="acts"><a class="btn light mag" href="${IG}">${t("ab_ig")} ${AR}</a><a class="btn lghost" href="#collectie">${t("nav_col")}</a></div></div>
-</div></section>`;
+ <div class="acts" style="margin-top:28px"><a class="btn mag" href="${IG}">Instagram @lumar.watches ${AR}</a><a class="btn ghost" href="#aanbieden">${t("nav_sell")}</a></div></div></div></section>`;
 }
 function privacy(){
  const nl=`<div class="draft">Concepttekst. Laat deze verklaring controleren en vul de bedrijfsgegevens aan zodra LUMAR bij de KvK is ingeschreven.</div>
@@ -1604,12 +1610,12 @@ function bindTerms(){
  addEventListener("scroll",spy,{passive:true});spy();
 }
 function footer(){
- return `<div class="wrap">
-  <div><a class="logo" href="#home">LUMAR</a><p>${t("f_tag")}</p><p>${MAIL}</p></div>
-  <div><b>${t("f_shop")}</b><a href="#collectie">${t("nav_col")}</a><a href="#aanbieden">${t("nav_sell")}</a><a href="#status">${t("st_nav")}</a><a href="#over">${t("nav_about")}</a></div>
-  <div><b>${t("f_follow")}</b><a href="${IG}">Instagram</a><a href="${VINTED}">Vinted</a><a href="${CHRONO}">Chrono24</a></div>
-  <div><b>${t("f_info")}</b><a href="#voorwaarden">${t("f_terms")}</a><a href="#privacy">${t("f_priv")}</a><a href="#voorwaarden-herroeping">${t("f_ret")}</a></div>
- </div><div class="legal"><span>© 2026 LUMAR Watches</span><span>${t("f_kvk")}</span></div><div class="fmega" aria-hidden="true">LUMAR</div>`;
+ return `<div class="fbar">
+  <a class="flogo" href="#home">LUMAR<small>WATCHES</small></a>
+  <nav class="flinks"><a href="#collectie">${t("nav_col")}</a><a href="#aanbieden">${t("nav_sell")}</a><a href="#status">${t("st_nav")}</a><a href="#over">${t("nav_about")}</a><a href="#voorwaarden">${t("f_terms")}</a><a href="#privacy">${t("f_priv")}</a></nav>
+  <div class="fsoc"><a href="${IG}">Instagram</a><a href="${VINTED}">Vinted</a><a href="${CHRONO}">Chrono24</a></div>
+ </div>
+ <div class="fmeta"><span>© 2026 LUMAR Watches</span><a href="mailto:${MAIL}">${MAIL}</a><span>${t("f_kvk")}</span></div>`;
 }
 
 /* ---------- switcher (language + currency) ---------- */
