@@ -310,7 +310,7 @@ p{margin:0}
 .score:hover h3::after{transform:scaleX(1)}
 .score .n{font:400 clamp(80px,10vw,128px)/.85 "Instrument Serif",serif}
 .score .stars svg{width:22px;height:22px}
-.rq{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.rq{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent);mask:linear-gradient(90deg,transparent,#000 16%,#000 84%,transparent)}
 .rq .tr{display:flex;gap:20px;width:max-content;animation:mq 230s linear infinite;padding:6px 0}
 @keyframes mq{to{transform:translateX(-50%)}}
 .rq:hover .tr{animation-play-state:paused}
@@ -667,6 +667,61 @@ main.pg > section:not(.hero):not(.phead) > .wrap{animation:pg .4s ease-out both}
 @media(max-width:1000px){.filters{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}.filters .tog{grid-column:1/-1;justify-self:start}.hero .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.row4{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(6,auto)}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prod,.wiz,.sellband .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}.gal,.side{position:static}footer .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}.slots{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.filters input[type=search]{grid-column:1/-1}.links{display:none}.burger{display:block}.navr{margin-left:auto;border:0;padding-left:0}}
 @media(max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.vit{justify-self:center;max-width:520px}.vw{width:34%}.row3{grid-template-columns:minmax(0,1fr);grid-template-rows:none}.row3 .cell{grid-row:auto;grid-template-rows:auto}.verify,.notes,.plats{grid-template-columns:minmax(0,1fr)}.head,.revhead{grid-template-columns:minmax(0,1fr)}.insp{max-width:420px}}
 @media(max-width:560px){.bidpill b{font-size:24px}.thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{border-radius:16px}.card .info{padding:11px 12px 13px;gap:1px 6px}.card .brand{font-size:13px}.card .price{font-size:18px}.card .model{font-size:12px}.badge{top:8px;left:8px;font-size:11px;padding:4px 9px}.tray .ov{display:none}.row4{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(6,auto)}.f2{grid-template-columns:minmax(0,1fr)}footer .wrap{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px 12px}footer .wrap>div:first-child{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}footer .wrap>div:first-child .logo{margin:0;font-size:32px;flex-basis:100%}footer p{font-size:13px;margin:0}footer b{font-size:13px;margin-bottom:6px}footer a{font-size:13px;padding:3px 0}footer.band{padding-top:40px;padding-bottom:20px}.legal{margin-top:24px;padding-top:14px;font-size:11px;gap:4px}.rc{width:280px}.prog div{font-size:0}.filters{grid-template-columns:minmax(0,1fr)}}
+
+/* visual upgrade 27-11 */
+.mark .ws span{display:inline-block;opacity:0;transform:translateY(60%);filter:blur(6px);animation:rise .9s var(--ease) forwards}
+@keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
+.vw img.refl{position:absolute;left:0;top:100%;width:100%;height:100%;margin-top:2px;transform:scaleY(-1);opacity:.2;pointer-events:none;-webkit-mask:linear-gradient(to top,#000 0,transparent 38%);mask:linear-gradient(to top,#000 0,transparent 38%)}
+.vw.ph img.refl{box-shadow:none;opacity:.14}
+.alt2{position:absolute;inset:0;z-index:1;opacity:0;overflow:hidden;background:radial-gradient(circle at 50% 42%,#faf6ef 0,var(--beige) 72%);transition:opacity .7s var(--ease)}
+.alt2 img{position:absolute;inset:7%;width:86%;height:86%;object-fit:contain;transition:transform 1.2s var(--ease)!important;filter:none}
+.alt2 img.cover{inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+@media(hover:hover){.card.has2:hover .alt2{opacity:1}.card.has2:hover .alt2 img.cover{transform:scale(1)}}
+.featq{position:relative;isolation:isolate}
+.featq::before{content:"\201C";position:absolute;z-index:-1;left:-.06em;top:-.42em;font:400 clamp(220px,26vw,340px)/1 "Instrument Serif",serif;color:var(--gold);opacity:.16;pointer-events:none}
+@media(max-width:560px){.rq{-webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}}
+@media(min-width:1001px){.filters{position:sticky;top:84px;z-index:20;padding:10px;margin-inline:-10px;border-radius:999px;background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);border:1px solid transparent;transition:top .5s var(--ease),box-shadow .4s,border-color .4s}
+.filters.stuck{border-color:var(--line);box-shadow:0 18px 40px -28px rgba(20,19,17,.45)}
+body:has(.top.slim) .filters{top:66px}}
+.spec td{font:400 20px/1.25 "Instrument Serif",serif;letter-spacing:.01em}
+.spec th{font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;padding-top:16px}
+.js .spec.rv{opacity:1;transform:none}
+.js .spec.rv tr{opacity:0;transform:translateX(-14px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:calc(var(--i)*70ms)}
+.js .spec.rv.in tr{opacity:1;transform:none}
+.prog{position:relative;padding-top:18px}
+.prog div::before{display:none}
+.prog::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;border-radius:2px;background:var(--line)}
+.prog .pline{position:absolute;left:0;top:0;height:2px;width:calc(12.5% + var(--p)*75%);border-radius:2px;background:linear-gradient(90deg,var(--gold),#d9bd86);box-shadow:0 0 12px rgba(196,164,107,.6);transition:width .9s var(--ease)}
+.prog .pline::after{content:"";position:absolute;right:-5px;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(196,164,107,.2)}
+.prog div{position:relative;text-align:center;transition:color .5s}
+.slot:not(.has){animation:breathe 2.8s ease-in-out infinite}
+.slots .slot:nth-child(2n):not(.has){animation-delay:-.7s}.slots .slot:nth-child(3n):not(.has){animation-delay:-1.4s}
+@keyframes breathe{0%,100%{border-color:var(--sand);background-color:var(--beige2)}50%{border-color:var(--gold);background-color:#f3ecdf}}
+.vcard .slot:not(.has){animation-name:breatheD}
+@keyframes breatheD{0%,100%{border-color:#3a342a}50%{border-color:rgba(196,164,107,.8)}}
+@media(prefers-reduced-motion:reduce){.slot{animation:none!important}}
+.nav{transition:padding .5s var(--ease)}
+.logo{transition:opacity .5s,font-size .5s var(--ease)}
+.top.slim .nav{padding-top:9px;padding-bottom:9px}
+.top.slim .logo{font-size:24px}
+.top.solid.slim{background:rgba(255,255,255,.84);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4)}
+footer{overflow:hidden}
+footer.band{padding-bottom:0}
+.fmega{font:400 clamp(96px,21vw,330px)/.74 "Instrument Serif",serif;letter-spacing:.02em;text-align:center;margin:clamp(24px,3vw,44px) -5vw -.2em;white-space:nowrap;background:linear-gradient(180deg,rgba(243,237,227,.26),rgba(196,164,107,.08) 60%,rgba(243,237,227,0) 92%);-webkit-background-clip:text;background-clip:text;color:transparent;user-select:none;pointer-events:none}
+.tlay{display:grid;grid-template-columns:220px minmax(0,760px);gap:clamp(32px,5vw,80px);align-items:start}
+.tside{position:sticky;top:96px;display:grid;gap:2px;padding-top:44px}
+.tside b{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+.tside a{display:flex;gap:10px;align-items:baseline;text-decoration:none;font-size:14.5px;color:var(--muted);padding:7px 0 7px 14px;border-left:1.5px solid var(--line);transition:color .3s,border-color .3s}
+.tside a i{font-style:normal;font-size:12px;min-width:16px;color:inherit;opacity:.7}
+.tside a:hover{color:var(--ink)}
+.tside a.on{color:var(--ink);border-left-color:var(--gold);font-weight:600}
+.doc h2[id]{scroll-margin-top:100px}
+@media(min-width:1001px){.phead .toc{display:none}}
+@media(max-width:1000px){.tlay{grid-template-columns:minmax(0,1fr)}.tside{display:none}}
+.aq{position:relative;margin:48px 0 44px;padding:34px 0 30px clamp(20px,4vw,48px);border-left:2px solid var(--gold);isolation:isolate}
+.aq::before{content:"\201C";position:absolute;z-index:-1;left:clamp(6px,2vw,24px);top:-.3em;font:400 220px/1 "Instrument Serif",serif;color:var(--gold);opacity:.16}
+.aq blockquote{margin:0;font:400 clamp(32px,4vw,50px)/1.1 "Instrument Serif",serif;color:var(--ink);text-wrap:balance}
+.aq figcaption{margin-top:18px;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -906,7 +961,8 @@ function clockSVG(hh,mm){
 
 /* ---------- shared pieces ---------- */
 const badge=w=>`<span class="badge ${w.st==="sold"?"sold":w.st==="res"?"res":""}">${ST(w.st)}</span>`;
-const card=(w,i=0)=>`<a class="card rv dl${i%3}${w.st==="sold"?" is-sold":""}" href="#horloge-${w.id}"><div class="tray">${badge(w)}${pic(w)}<div class="ov"><span>${t("view")}</span>${AR}</div></div><div class="info"><span class="brand">${esc(w.brand)}</span><span class="price">${money(w.price)}</span><span class="model">${esc(w.model)} · ${esc(w.ref)}</span></div></a>`;
+const alt2=w=>w.photos&&w.photos.length>1?`<div class="alt2"><img class="cover" src="${w.photos[1]}" alt="" loading="lazy"></div>`:w.img?`<div class="alt2"><img src="${IMG[w.img]}" alt="" style="transform:scale(1.9)"></div>`:"";
+const card=(w,i=0)=>`<a class="card rv dl${i%3}${w.st==="sold"?" is-sold":""}${alt2(w)?" has2":""}" href="#horloge-${w.id}"><div class="tray">${badge(w)}${pic(w)}${alt2(w)}<div class="ov"><span>${t("view")}</span>${AR}</div></div><div class="info"><span class="brand">${esc(w.brand)}</span><span class="price">${money(w.price)}</span><span class="model">${esc(w.model)} · ${esc(w.ref)}</span></div></a>`;
 const phead=(title,sub,crumbs,extra="")=>`<section class="phead"><div class="grain"></div><div class="wrap">${crumbs?`<div class="crumbs ld">${crumbs}</div>`:""}<h1 class="ld d1">${title}</h1>${sub?`<p class="ld d2">${sub}</p>`:""}${extra}</div></section>`;
 const crumb=(...a)=>[`<a href="#home">${t("home")}</a>`,...a].join(" / ");
 const dd=(id,opts,val,aria)=>{const cur=opts.find(o=>o.v===val)||opts[0];return `<div class="dd" id="${id}" data-val="${esc(cur.v)}"><button type="button" class="dd-b" aria-haspopup="listbox" aria-expanded="false" aria-label="${esc(aria)}"><span class="dd-v">${esc(cur.t)}</span>${CHEV}</button><ul class="dd-l" role="listbox">${opts.map(o=>`<li role="option" tabindex="-1" data-v="${esc(o.v)}" aria-selected="${o.v===cur.v}">${esc(o.t)}${CHECK}</li>`).join("")}</ul></div>`};
@@ -938,7 +994,7 @@ function home(){
  <div class="wrap">
   <div class="mark">
    <h1 aria-label="LUMAR">${[..."LUMAR"].map((c,i)=>`<span style="animation-delay:${.1+i*.08}s">${c}</span>`).join("")}</h1>
-   <div class="ws ld d2">WATCHES</div>
+   <div class="ws">${[..."WATCHES"].map((c,i)=>`<span style="animation-delay:${.55+i*.06}s">${c}</span>`).join("")}</div>
    <p class="sub ld d3">${t("hero_sub")}</p>
    <div class="acts ld d4"><a class="btn light mag" href="#collectie">${t("hero_c1")} ${AR}</a><a class="btn lghost mag" href="#aanbieden">${t("hero_c2")}</a></div>
    <div class="trust ld d4">${stars}<span><a href="${VINTED}">${t("reviews")}</a> ${t("on_vinted")}</span></div>
@@ -946,7 +1002,7 @@ function home(){
   <div class="vit" id="vit">
    <svg class="rings" viewBox="0 0 100 77" aria-hidden="true"><circle class="r1" cx="50" cy="36" r="33"/><circle class="r2" cx="50" cy="36" r="27"/><ellipse class="trk" cx="50" cy="60" rx="40" ry="7"/><ellipse class="trk2" cx="50" cy="60" rx="40" ry="7"/></svg>
    <div class="glow"></div><div class="floor"></div><div class="dust" id="dust"></div>
-   ${HERO.map((w,i)=>`<div class="vw${w.photos&&w.photos.length?" ph":""}" role="link" tabindex="0" aria-label="${esc(w.brand+" "+w.model)}" style="--ar:${w.photos&&w.photos.length?.8:RATIO[w.img]||.62};transition-delay:${.3+i*.12}s"><div class="fl" style="animation-delay:${-i*1.3}s"><img src="${heroSrc(w)}" alt="${esc(w.brand+" "+w.model)}"><div class="shine" style="animation-delay:${i*1}s"></div></div></div>`).join("")}
+   ${HERO.map((w,i)=>`<div class="vw${w.photos&&w.photos.length?" ph":""}" role="link" tabindex="0" aria-label="${esc(w.brand+" "+w.model)}" style="--ar:${w.photos&&w.photos.length?.8:RATIO[w.img]||.62};transition-delay:${.3+i*.12}s"><div class="fl" style="animation-delay:${-i*1.3}s"><img src="${heroSrc(w)}" alt="${esc(w.brand+" "+w.model)}"><img class="refl" src="${heroSrc(w)}" alt="" aria-hidden="true"><div class="shine" style="animation-delay:${i*1}s"></div></div></div>`).join("")}
   </div>
  </div>
 </section>
@@ -1109,7 +1165,7 @@ function product(w){
   ${w.st==="sold"?`<button class="btn" disabled>${t("soldbtn")}</button><button class="btn ghost" data-alert data-brand="${esc(w.brand)}" data-model="${esc(w.model)}">${t("al_sold")}</button>`
    :`<div class="pcta"><button class="btn" id="ib">${t("interest")} ${AR}</button>${w.st==="av"?`<button class="btn ghost" id="bidb">${t("bid_btn")}</button>`:""}</div>
   ${w.st==="av"?`<a class="ptrade" href="#inruilen-${esc(w.id)}"><span>${t("trade_q")}</span><b>${t("trade_btn")} ${AR}</b></a>`:""}`}
-  <table class="spec"><tbody>${rows.filter(([,v])=>v!==""&&v!=null).map(([k,v])=>`<tr><th>${t(k)}</th><td>${esc(v)}</td></tr>`).join("")}</tbody></table>
+  <table class="spec rv"><tbody>${rows.filter(([,v])=>v!==""&&v!=null).map(([k,v],i)=>`<tr style="--i:${i}"><th>${t(k)}</th><td>${esc(v)}</td></tr>`).join("")}</tbody></table>
   <div class="notes">
    <div class="note"><b>${t("n_state")}</b>${esc(tx(w.note))}</div>
    <div class="note"><b>${t("n_check")}</b>${t("n_check_p")} <a href="#voorwaarden">${t("terms")}</a></div>
@@ -1166,7 +1222,7 @@ function offer(){
  return phead(TRADE?t("tr_t"):t("of_t"),TRADE?t("tr_s"):t("of_s"),crumb(t("nav_sell")))+`
 <section class="band sellwrap"><div class="wrap wiz">
  <div class="panel rv" id="panel">
-  <div class="prog" id="prog"><div class="on">${t("p1")}</div><div>${t("p2")}</div><div>${t("p3")}</div><div>${t("p4")}</div></div>
+  <div class="prog" id="prog" style="--p:0"><i class="pline"></i><div class="on">${t("p1")}</div><div>${t("p2")}</div><div>${t("p3")}</div><div>${t("p4")}</div></div>
   <form id="of" novalidate>
    <div class="stepv on" data-s="1">
     <h2>${t("o1t")}</h2><p class="muted">${t("o1s")}</p>
@@ -1265,7 +1321,7 @@ function bindOffer(){
  };
  const show=s=>{
   step=s;document.querySelectorAll(".stepv").forEach(v=>v.classList.toggle("on",+v.dataset.s===s));
-  document.querySelectorAll("#prog div").forEach((d,i)=>d.classList.toggle("on",i<s));
+  document.querySelectorAll("#prog div").forEach((d,i)=>d.classList.toggle("on",i<s));{const pg=document.getElementById("prog");if(pg)pg.style.setProperty("--p",(s-1)/3)}
   g("prev").hidden=s===1;g("next").innerHTML=(s===4?t("send"):t("next"))+" "+AR;
   if(s===4)buildReview();err("");
   g("panel").scrollIntoView({behavior:"smooth",block:"start"});
@@ -1479,9 +1535,11 @@ document.addEventListener("click",e=>{const a=e.target.closest("[data-alert]");i
 /* ---------- text pages ---------- */
 function about(){
  const nl=`<p style="font-size:20px;color:var(--ink)">LUMAR Watches is opgezet door Luuk en Marijn. De naam komt van onze eigen namen, en zo voelt het bedrijf ook.</p>
+ <figure class="aq rv"><blockquote>We verkopen alleen horloges die we zelf ook zouden dragen.</blockquote><figcaption>Luuk &amp; Marijn, oprichters</figcaption></figure>
  <h2>Hoe we werken</h2><p>Elk horloge dat we inkopen bekijken we zelf. We controleren de referentie, het uurwerk en de details, en we beschrijven de staat zoals die is. Onze prijzen bepalen we door te vergelijken met wat vergelijkbare horloges op Chrono24, Catawiki en Vinted echt opbrengen.</p>
  <h2>Waar je ons vindt</h2><p>Naast deze website verkopen we via <a href="${VINTED}">Vinted</a>, waar we meer dan 70 reviews hebben, en via Chrono24. Bij elk horloge staat de link naar die platforms, zodat je ook daar kunt kopen met hun kopersbescherming.</p>`;
  const en=`<p style="font-size:20px;color:var(--ink)">LUMAR Watches was founded by Luuk and Marijn. The name comes from our own names, and that's how the business feels too.</p>
+ <figure class="aq rv"><blockquote>We only sell watches we would wear ourselves.</blockquote><figcaption>Luuk &amp; Marijn, founders</figcaption></figure>
  <h2>How we work</h2><p>We inspect every watch we buy ourselves. We check the reference, the movement and the details, and we describe the condition as it is. We set our prices by comparing what similar watches actually sell for on Chrono24, Catawiki and Vinted.</p>
  <h2>Where to find us</h2><p>Besides this website we sell on <a href="${VINTED}">Vinted</a>, where we have more than 70 reviews, and on Chrono24. Every watch links to those platforms, so you can also buy there with their buyer protection.</p>`;
  return phead(t("nav_about"),t("about_s"),crumb(t("nav_about")))+`<section class="band"><div class="wrap"><div class="doc rv">${lang==="en"?en:nl}
@@ -1513,30 +1571,37 @@ function privacy(){
 function terms(){
  const toc=lang==="en"?[["aanbod","Offer"],["herroeping","Returns"],["garantie","Warranty"],["inkoop","Buying your watch"],["bieden","Offers"],["reviews","Reviews"]]:[["aanbod","Aanbod"],["herroeping","Retourneren"],["garantie","Garantie"],["inkoop","Inkoop"],["bieden","Bieden"],["reviews","Reviews"]];
  const nl=`<div class="draft">Concepttekst. Laat deze voorwaarden juridisch controleren en vul de bedrijfsgegevens aan na inschrijving bij de KvK.</div>
- <h2>1. Toepasselijkheid</h2><p>Deze voorwaarden gelden voor elk aanbod van LUMAR Watches en voor elke overeenkomst die via deze website tot stand komt, zowel bij verkoop aan jou als bij inkoop van jouw horloge. Aankopen via Vinted of Chrono24 vallen onder de voorwaarden van dat platform.</p>
+ <h2 id="voorwaarden-toepassing">1. Toepasselijkheid</h2><p>Deze voorwaarden gelden voor elk aanbod van LUMAR Watches en voor elke overeenkomst die via deze website tot stand komt, zowel bij verkoop aan jou als bij inkoop van jouw horloge. Aankopen via Vinted of Chrono24 vallen onder de voorwaarden van dat platform.</p>
  <h2 id="voorwaarden-aanbod">2. Aanbod en staat</h2><p>Wij verkopen nieuwe en tweedehands horloges. Elk horloge wordt beschreven met de staat zoals wij die vaststellen en gefotografeerd als het exacte exemplaar dat je ontvangt. Normale gebruikssporen die bij de beschreven staat passen, zijn geen gebrek. Kennelijke vergissingen in het aanbod binden ons niet.</p>
- <h2>3. Prijzen en betaling</h2><p>Alle prijzen zijn in euro en inclusief verzending binnen Nederland, tenzij anders vermeld. Bedragen in andere valuta zijn een indicatie; afrekenen gebeurt in euro. Op tweedehands horloges kan de margeregeling van toepassing zijn; de btw staat dan niet apart op de factuur. Betaling vindt vooraf plaats via de betaalmethoden op de website.</p>
- <h2>4. Levering</h2><p>We verzenden binnen 3 werkdagen na ontvangst van de betaling, verzekerd en met track & trace. Het risico van verlies of beschadiging gaat over op het moment van bezorging.</p>
+ <h2 id="voorwaarden-prijzen">3. Prijzen en betaling</h2><p>Alle prijzen zijn in euro en inclusief verzending binnen Nederland, tenzij anders vermeld. Bedragen in andere valuta zijn een indicatie; afrekenen gebeurt in euro. Op tweedehands horloges kan de margeregeling van toepassing zijn; de btw staat dan niet apart op de factuur. Betaling vindt vooraf plaats via de betaalmethoden op de website.</p>
+ <h2 id="voorwaarden-levering">4. Levering</h2><p>We verzenden binnen 3 werkdagen na ontvangst van de betaling, verzekerd en met track & trace. Het risico van verlies of beschadiging gaat over op het moment van bezorging.</p>
  <h2 id="voorwaarden-herroeping">5. Herroepingsrecht (retourneren)</h2><p>Je hebt 14 dagen na ontvangst het recht om de koop zonder opgave van reden te ontbinden. Meld dit per mail aan ${MAIL} en stuur het horloge binnen 14 dagen daarna terug, in dezelfde staat en met alles wat erbij zat. De kosten van het terugsturen zijn voor jou, tenzij we anders afspreken. We betalen het aankoopbedrag inclusief de oorspronkelijke verzendkosten binnen 14 dagen terug nadat we het horloge hebben ontvangen. Je bent aansprakelijk voor waardevermindering door meer gebruik dan nodig om het horloge te beoordelen, zoals het verwijderen van beschermfolie of het inkorten van de band.</p>
  <h2 id="voorwaarden-garantie">6. Garantie en echtheid</h2><p>Je hebt altijd recht op een horloge dat voldoet aan de overeenkomst (wettelijke garantie). Wij staan in voor de echtheid van elk horloge dat we verkopen. Blijkt een horloge niet echt te zijn, dan krijg je het volledige aankoopbedrag terug.</p>
  <h2 id="voorwaarden-inkoop">7. Inkoop van jouw horloge</h2><ul><li>Een bod van LUMAR is vrijblijvend en 7 dagen geldig, tenzij anders vermeld.</li><li>Ons bod is gebaseerd op jouw beschrijving, foto's en controlefoto's. Wijkt de staat bij ontvangst af, dan mogen we het bod aanpassen of het horloge op onze kosten terugsturen.</li><li>Je verklaart dat je eigenaar bent van het horloge, dat het echt is en dat er geen rechten van anderen op rusten. Bij twijfel over herkomst kunnen we om een aankoopbewijs vragen.</li><li>We betalen binnen 2 werkdagen nadat we het horloge hebben ontvangen en gecontroleerd.</li></ul>
  <h2 id="voorwaarden-bieden">8. Bieden op een horloge</h2><ul><li>Een bod is een voorstel van jou. Er is pas een koop als wij je bod schriftelijk accepteren en jij betaalt.</li><li>Wij mogen een bod zonder opgave van reden weigeren, of een tegenbod doen.</li><li>Accepteren we je bod, dan reserveren we het horloge kort voor je. In onze bevestiging staat tot wanneer. Betaal je niet op tijd, dan vervalt de reservering.</li><li>Zolang we je bod niet hebben geaccepteerd, kan het horloge ook aan iemand anders worden verkocht.</li><li>Een bod moet minimaal de helft van de vraagprijs zijn. Bieden gaat altijd in euro.</li><li>Ook bij een koop via een bod heb je 14 dagen bedenktijd.</li></ul>
  <h2 id="voorwaarden-reviews">9. Reviews</h2><p>Alle reviews op deze website komen van kopers op ons <a href="${VINTED}">Vinted-profiel</a>. Op Vinted kun je alleen een review geven na een afgeronde aankoop. Op de website tonen we een selectie van de geschreven reviews; de gemiddelde score en het totale aantal reviews berekent Vinted zelf. Namen zijn afgekort voor de privacy van de kopers. We betalen of belonen niet voor reviews en passen de tekst van reviews niet aan, behalve vertalingen die we duidelijk als vertaling tonen.</p>
- <h2>10. Klachten</h2><p>Klachten kun je mailen naar ${MAIL}. We reageren binnen 14 dagen.</p>
- <h2>11. Toepasselijk recht</h2><p>Op deze voorwaarden en alle overeenkomsten is Nederlands recht van toepassing.</p>`;
+ <h2 id="voorwaarden-klachten">10. Klachten</h2><p>Klachten kun je mailen naar ${MAIL}. We reageren binnen 14 dagen.</p>
+ <h2 id="voorwaarden-recht">11. Toepasselijk recht</h2><p>Op deze voorwaarden en alle overeenkomsten is Nederlands recht van toepassing.</p>`;
  const en=`<div class="draft">Draft text. Have these terms legally reviewed and add the company details after registration with the Dutch Chamber of Commerce (KvK).</div>
- <h2>1. Applicability</h2><p>These terms apply to every offer by LUMAR Watches and to every agreement made through this website, both when we sell to you and when we buy your watch. Purchases via Vinted or Chrono24 are subject to that platform's terms.</p>
+ <h2 id="voorwaarden-toepassing">1. Applicability</h2><p>These terms apply to every offer by LUMAR Watches and to every agreement made through this website, both when we sell to you and when we buy your watch. Purchases via Vinted or Chrono24 are subject to that platform's terms.</p>
  <h2 id="voorwaarden-aanbod">2. Offer and condition</h2><p>We sell new and pre-owned watches. Each watch is described in the condition we assess and photographed as the exact piece you will receive. Normal signs of wear consistent with the stated condition are not a defect. Obvious errors in the offer are not binding.</p>
- <h2>3. Prices and payment</h2><p>All prices are in euros and include shipping within the Netherlands unless stated otherwise. Amounts in other currencies are indicative; payment is made in euros. The margin scheme may apply to pre-owned watches, in which case VAT is not shown separately on the invoice. Payment is made in advance using the methods offered on the website.</p>
- <h2>4. Delivery</h2><p>We ship within 3 working days of receiving payment, insured and with tracking. Risk of loss or damage passes to you on delivery.</p>
+ <h2 id="voorwaarden-prijzen">3. Prices and payment</h2><p>All prices are in euros and include shipping within the Netherlands unless stated otherwise. Amounts in other currencies are indicative; payment is made in euros. The margin scheme may apply to pre-owned watches, in which case VAT is not shown separately on the invoice. Payment is made in advance using the methods offered on the website.</p>
+ <h2 id="voorwaarden-levering">4. Delivery</h2><p>We ship within 3 working days of receiving payment, insured and with tracking. Risk of loss or damage passes to you on delivery.</p>
  <h2 id="voorwaarden-herroeping">5. Right of withdrawal (returns)</h2><p>You have 14 days after receipt to cancel the purchase without giving a reason. Notify us by email at ${MAIL} and return the watch within 14 days after that, in the same condition and with everything that came with it. Return shipping costs are yours unless agreed otherwise. We refund the purchase price including the original shipping costs within 14 days of receiving the watch. You are liable for any loss in value caused by handling beyond what is needed to assess the watch, such as removing protective film or shortening the strap.</p>
  <h2 id="voorwaarden-garantie">6. Warranty and authenticity</h2><p>You are always entitled to a watch that conforms to the agreement (statutory warranty). We guarantee the authenticity of every watch we sell. If a watch turns out not to be genuine, you receive a full refund of the purchase price.</p>
  <h2 id="voorwaarden-inkoop">7. Buying your watch</h2><ul><li>An offer from LUMAR is without obligation and valid for 7 days unless stated otherwise.</li><li>Our offer is based on your description, photos and verification photos. If the condition differs on receipt, we may adjust the offer or return the watch at our expense.</li><li>You declare that you own the watch, that it is genuine and that no third-party rights apply to it. If in doubt about its origin, we may ask for proof of purchase.</li><li>We pay within 2 working days after receiving and checking the watch.</li></ul>
  <h2 id="voorwaarden-bieden">8. Making an offer on a watch</h2><ul><li>An offer is a proposal from you. A purchase only exists once we accept your offer in writing and you pay.</li><li>We may decline an offer without giving a reason, or make a counter offer.</li><li>If we accept your offer, we reserve the watch for you for a short time. Our confirmation states until when. If you don't pay in time, the reservation lapses.</li><li>Until we have accepted your offer, the watch may also be sold to someone else.</li><li>An offer must be at least half of the asking price. Offers are always in euros.</li><li>A purchase via an offer also comes with the 14-day cooling-off period.</li></ul>
  <h2 id="voorwaarden-reviews">9. Reviews</h2><p>All reviews on this website come from buyers on our <a href="${VINTED}">Vinted profile</a>. On Vinted you can only leave a review after a completed purchase. On the website we show a selection of the written reviews; the average score and the total number of reviews are calculated by Vinted itself. Names are shortened to protect buyers' privacy. We never pay or reward anyone for reviews and we don't edit review texts, except for translations that are clearly shown as such.</p>
- <h2>10. Complaints</h2><p>Email complaints to ${MAIL}. We respond within 14 days.</p>
- <h2>11. Governing law</h2><p>These terms and all agreements are governed by Dutch law.</p>`;
- return phead(t("terms_t"),t("updated"),crumb(t("terms")),`<div class="toc ld d3">${toc.map(([k,l])=>`<a href="#voorwaarden-${k}">${l}</a>`).join("")}</div>`)+`<section class="band"><div class="wrap"><div class="doc">${lang==="en"?en:nl}</div></div></section>`;
+ <h2 id="voorwaarden-klachten">10. Complaints</h2><p>Email complaints to ${MAIL}. We respond within 14 days.</p>
+ <h2 id="voorwaarden-recht">11. Governing law</h2><p>These terms and all agreements are governed by Dutch law.</p>`;
+ const body=lang==="en"?en:nl,side=[...body.matchAll(/<h2 id="([^"]+)">([^<]+)<\/h2>/g)].map(m=>`<a href="#${m[1]}" data-to="${m[1]}">${m[2].replace(/^(\d+)\.\s*/,"<i>$1</i>")}</a>`).join("");
+ return phead(t("terms_t"),t("updated"),crumb(t("terms")),`<div class="toc ld d3">${toc.map(([k,l])=>`<a href="#voorwaarden-${k}">${l}</a>`).join("")}</div>`)+`<section class="band"><div class="wrap tlay"><aside class="tside" id="tside"><b>${lang==="en"?"Contents":"Inhoud"}</b>${side}</aside><div class="doc">${body}</div></div></section>`;
+}
+function bindTerms(){
+ const side=document.getElementById("tside");if(!side)return;
+ const links=[...side.querySelectorAll("a")],hs=links.map(a=>document.getElementById(a.dataset.to));
+ const spy=()=>{if(!document.getElementById("tside"))return removeEventListener("scroll",spy);let k=0;hs.forEach((h,i)=>{if(h&&h.getBoundingClientRect().top<innerHeight*.35)k=i});if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)k=hs.length-1;links.forEach((a,i)=>a.classList.toggle("on",i===k))};
+ addEventListener("scroll",spy,{passive:true});spy();
 }
 function footer(){
  return `<div class="wrap">
@@ -1544,7 +1609,7 @@ function footer(){
   <div><b>${t("f_shop")}</b><a href="#collectie">${t("nav_col")}</a><a href="#aanbieden">${t("nav_sell")}</a><a href="#status">${t("st_nav")}</a><a href="#over">${t("nav_about")}</a></div>
   <div><b>${t("f_follow")}</b><a href="${IG}">Instagram</a><a href="${VINTED}">Vinted</a><a href="${CHRONO}">Chrono24</a></div>
   <div><b>${t("f_info")}</b><a href="#voorwaarden">${t("f_terms")}</a><a href="#privacy">${t("f_priv")}</a><a href="#voorwaarden-herroeping">${t("f_ret")}</a></div>
- </div><div class="legal"><span>© 2026 LUMAR Watches</span><span>${t("f_kvk")}</span></div>`;
+ </div><div class="legal"><span>© 2026 LUMAR Watches</span><span>${t("f_kvk")}</span></div><div class="fmega" aria-hidden="true">LUMAR</div>`;
 }
 
 /* ---------- switcher (language + currency) ---------- */
@@ -1600,7 +1665,7 @@ function reveal(){document.querySelectorAll(".rv:not(.in)").forEach(el=>io?io.ob
 const top=document.getElementById("top"),menu=document.getElementById("menu");
 const onScroll=()=>{const sol=window.scrollY>40;top.classList.toggle("solid",sol);top.classList.toggle("onhero",!sol&&!!document.getElementById("hero"))};
 let lastY=0;
-window.addEventListener("scroll",()=>{onScroll();const y=window.scrollY;top.classList.toggle("hide",y>lastY&&y>300&&!sw.classList.contains("open"));lastY=y},{passive:true});
+window.addEventListener("scroll",()=>{onScroll();const y=window.scrollY;if(Math.abs(y-lastY)>4){top.classList.toggle("slim",y>lastY&&y>160&&!sw.classList.contains("open"));lastY=y}if(y<160)top.classList.remove("slim");const f=document.querySelector(".filters");if(f)f.classList.toggle("stuck",f.getBoundingClientRect().top<100&&y>200)},{passive:true});
 const setMenu=o=>{menu.classList.toggle("on",o);menu.setAttribute("aria-hidden",String(!o))};
 document.getElementById("bg").addEventListener("click",()=>setMenu(true));
 document.getElementById("mx").addEventListener("click",()=>setMenu(false));
@@ -1670,7 +1735,7 @@ function route(keep){
  else if(h==="over"){render(about(),t("nav_about")+" | LUMAR","over",keep)}
  else if(h==="privacy"){render(privacy(),t("privacy")+" | LUMAR","",keep)}
  else if(h.startsWith("voorwaarden")){
-  if(keep===true||!document.getElementById("voorwaarden-aanbod"))render(terms(),t("terms_t")+" | LUMAR","",keep);
+  if(keep===true||!document.getElementById("voorwaarden-aanbod")){render(terms(),t("terms_t")+" | LUMAR","",keep);bindTerms()}
   const tg=h!=="voorwaarden"&&document.getElementById(h);
   if(tg&&keep!==true)tg.scrollIntoView({behavior:"smooth"});
  }
